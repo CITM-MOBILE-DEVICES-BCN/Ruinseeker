@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LoadingBar : MonoBehaviour
 {
     public Slider slider; // Arrastra el Slider desde el inspector
     public float loadSpeed = 0.5f; // Velocidad de carga
+    public string nextSceneName = "NextScene"; // Nombre de la escena a cargar
 
     private float targetProgress = 0f;
 
@@ -22,6 +24,12 @@ public class LoadingBar : MonoBehaviour
         {
             slider.value += loadSpeed * Time.deltaTime;
         }
+
+        if (slider.value >= 1f)
+        {
+            LoadNextScene();
+        }
+
     }
 
     // Llama a esta función para simular carga
@@ -34,4 +42,10 @@ public class LoadingBar : MonoBehaviour
     {
         IncreaseProgress(slider.value + 0.1f);
     }
+
+    private void LoadNextScene()
+    {
+        SceneManager.LoadScene(nextSceneName);
+    }
+
 }
