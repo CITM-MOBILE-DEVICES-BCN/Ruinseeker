@@ -858,7 +858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 29027925}
-  loadSpeed: 0.5
+  smoothSpeed: 5
   nextSceneName: 2.Game Selector
 --- !u!4 &1671962915
 Transform:
