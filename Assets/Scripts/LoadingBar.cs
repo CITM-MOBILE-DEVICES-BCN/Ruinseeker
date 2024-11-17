@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class LoadingBar : MonoBehaviour
 {
     public Slider slider; // Arrastra el Slider desde el inspector
-    public float loadSpeed = 0.5f; // Velocidad de carga
+    public float smoothSpeed = 0.2f; // Velocidad de suavizado
     public string nextSceneName = "NextScene"; // Nombre de la escena a cargar
 
     private float targetProgress = 0f;
@@ -20,13 +20,13 @@ public class LoadingBar : MonoBehaviour
 
     void Update()
     {
-        if (slider.value < targetProgress)
-        {
-            slider.value += loadSpeed * Time.deltaTime;
-        }
+        // Suaviza el movimiento del slider hacia el objetivo
+        slider.value = Mathf.Lerp(slider.value, targetProgress, smoothSpeed * Time.deltaTime);
 
-        if (slider.value >= 1f)
+        // Verifica si la barra ha llegado al final
+        if (slider.value >= 0.99f) // Usamos 0.99 para compensar la interpolación
         {
+            slider.value = 1f; // Aseguramos que llegue exactamente a 1
             LoadNextScene();
         }
 
