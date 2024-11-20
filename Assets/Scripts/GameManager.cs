@@ -3,37 +3,27 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using NavigationSystem;
 
 public class GameManager : MonoBehaviour
 {
+    private NavigationManager navManager;
+
+    private void Start()
+    {
+        navManager = new NavigationManager();
+    }
     public void ChangeSceneButton(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        navManager.ChangeSceneButton(sceneName);
     }
-
-    // Activar un Canvas u otro GameObject
     public void ActivateCanvas(GameObject canvas)
     {
-        if (canvas != null)
-        {
-            canvas.SetActive(true); // Activa el objeto
-        }
-        else
-        {
-            //Debug.LogWarning("El Canvas asignado es nulo.");
-        }
+        navManager.ActivateCanvas(canvas);
     }
 
-    // Desactivar un Canvas u otro GameObject
     public void DeactivateCanvas(GameObject canvas)
     {
-        if (canvas != null)
-        {
-            canvas.SetActive(false); // Desactiva el objeto
-        }
-        else
-        {
-            //Debug.LogWarning("El Canvas asignado es nulo.");
-        }
+        navManager.DeactivateCanvas(canvas);
     }
 }
