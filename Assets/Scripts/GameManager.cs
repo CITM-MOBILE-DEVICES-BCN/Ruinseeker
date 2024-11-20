@@ -7,16 +7,33 @@ using NavigationSystem;
 
 public class GameManager : MonoBehaviour
 {
+    #region Singleton
+    public static GameManager Instance { get; private set; }
+
     private NavigationManager navManager;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+    }
+    #endregion
 
     private void Start()
     {
         navManager = new NavigationManager();
     }
-    public void ChangeSceneButton(string sceneName)
+
+    public void ChangeScene(string sceneName)
     {
-        navManager.ChangeSceneButton(sceneName);
+        navManager.ChangeScene(sceneName);
     }
+
     public void ActivateCanvas(GameObject canvas)
     {
         navManager.ActivateCanvas(canvas);

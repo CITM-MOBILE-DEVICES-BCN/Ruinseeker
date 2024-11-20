@@ -7,19 +7,16 @@ namespace NavigationSystem
 {
     public class NavigationManager
     {
-        public void ChangeSceneButton(string sceneName)
+        public void ChangeScene(string sceneName)
         {
             SceneManager.LoadScene(sceneName);
         }
+
         public void ActivateCanvas(GameObject canvas)
         {
             if (canvas != null)
             {
                 canvas.SetActive(true);
-            }
-            else
-            {
-                //Debug.LogWarning("El Canvas asignado es nulo.");
             }
         }
 
@@ -28,10 +25,6 @@ namespace NavigationSystem
             if (canvas != null)
             {
                 canvas.SetActive(false);
-            }
-            else
-            {
-                //Debug.LogWarning("El Canvas asignado es nulo.");
             }
         }
     }
