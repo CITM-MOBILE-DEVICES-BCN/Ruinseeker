@@ -12,24 +12,30 @@ public class BoomerangEnemy : Enemy
 
     public override void Patrol()
     {
-        if (!isThrowingBoomerang && IsPlayerInRange())
-        {
-            OnPlayerDetected();
-        }
+        // Lógica de patrulla 
     }
 
     public override void OnPlayerDetected()
     {
-       
+        if (!isThrowingBoomerang)
+        {
+            StartCoroutine(ThrowBoomerang());
+        }
     }
 
-    //private IEnumerator ThrowBoomerang()
-    //{
-    //    isThrowingBoomerang = true;
-    //    var boomerang = Instantiate(boomerangPrefab, transform.position, Quaternion.identity);
-    //    var boomerangScript = boomerang.GetComponent<Boomerang>();
-    //    boomerangScript.Initialize(transform.position, boomerangRange, boomerangSpeed);
-    //    yield return new WaitUntil(() => boomerangScript.HasReturned);
-    //    isThrowingBoomerang = false;
-    //}
+    private IEnumerator ThrowBoomerang()
+    {
+        isThrowingBoomerang = true;
+        var boomerang = Instantiate(boomerangPrefab, transform.position, Quaternion.identity);
+        var boomerangScript = boomerang.GetComponent<Boomerang>();
+        boomerangScript.Initialize(transform.position, boomerangRange, boomerangSpeed);
+        yield return new WaitUntil(() => boomerangScript.HasReturned);
+        isThrowingBoomerang = false;
+    }
+
+    public override void Die()
+    {
+        Debug.Log("Boomerang Guy defeated!");
+        base.Die();
+    }
 }
