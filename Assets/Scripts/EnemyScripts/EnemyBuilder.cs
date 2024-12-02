@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBuilder
+public static class EnemyBuilder
 {
-    public static T BuildEnemy<T>(Vector3 postion, Transform parent = null) where T : Enemy
+    public static T BuildEnemy<T>(Vector3 postion, string enemyType) where T : Enemy
     {
-        GameObject enemyPrefab = Resources.Load<GameObject>("EnemyPrefabs/" + typeof(T).Name);
-        GameObject enemy = GameObject.Instantiate(enemyPrefab, postion, Quaternion.identity, parent);
+        GameObject enemyPrefab = Resources.Load<GameObject>("EnemyPrefabs/" + enemyType);
+        if (enemyPrefab == null)
+        {
+            Debug.LogError("Enemy prefab not found for " + typeof(T).Name);
+            return null;
+        }
+
+        GameObject enemy = GameObject.Instantiate(enemyPrefab, postion, Quaternion.identity);
         return enemy.GetComponent<T>();
     }
 }
