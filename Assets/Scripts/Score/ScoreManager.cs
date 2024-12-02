@@ -9,6 +9,7 @@ public class ScoreManager : MonoBehaviour
     public event Action<int> OnGemsChanged;
     public event Action<int> OnScoreChanged;
     public event Action<int> OnStarsChanged;
+    public event Action<int> OnDisplayStars;
 
     #region Singleton
     public static ScoreManager Instance { get; private set; }
@@ -26,7 +27,7 @@ public class ScoreManager : MonoBehaviour
     #endregion
 
     [Header("Score Settings")]
-    [SerializeField] private int gemsPerStar = 5;
+    [SerializeField] private int gemsPerStar = 1;
     [SerializeField] private int pointsPerStar = 10000;
 
     private int currentGems;
@@ -35,6 +36,14 @@ public class ScoreManager : MonoBehaviour
 
     public int CurrentGems => currentGems;
     public int TotalScore => totalScore;
+
+    protected virtual void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("FinishLine"))
+        {
+
+        }
+    }
 
     public void AddGems(int amount)
     {
@@ -74,11 +83,22 @@ public class ScoreManager : MonoBehaviour
         int stars = CalculateStars();
         totalScore += stars * pointsPerStar;
 
+        OnScoreChanged?.Invoke(totalScore);
+        OnStarsChanged?.Invoke(stars);
+
         // Here you could save the score/stars to persistent storage
         SaveLevelProgress(stars);
+
+        OnDisplayStars?.Invoke(stars);
+        // update score display
+        ScoreUIManager.Instance.UpdateScoreDisplay(totalScore);
+        ScoreUIManager.Instance.UpdateStarsDisplay(stars);
+
+        // Print out console level has finished
+        Debug.Log("Level has finished");
     }
 
-    private void SaveLevelProgress(int stars)
+    public void SaveLevelProgress(int stars)
     {
         // Implementation for saving progress (could use PlayerPrefs or your own save system)
         string currentSceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;

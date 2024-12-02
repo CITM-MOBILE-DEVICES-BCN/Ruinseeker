@@ -32,6 +32,7 @@ public class ScoreUIManager : MonoBehaviour
         ScoreManager.Instance.OnGemsChanged += UpdateGemsDisplay;
         ScoreManager.Instance.OnScoreChanged += UpdateScoreDisplay;
         ScoreManager.Instance.OnStarsChanged += UpdateStarsDisplay;
+        ScoreManager.Instance.OnDisplayStars += UpdateStarsDisplay;
 
         // Initialize displays
         UpdateGemsDisplay(ScoreManager.Instance.CurrentGems);
@@ -50,7 +51,7 @@ public class ScoreUIManager : MonoBehaviour
         }
     }
 
-    private void UpdateGemsDisplay(int gems)
+    public void UpdateGemsDisplay(int gems)
     {
         if (gemsText != null)
         {
@@ -58,7 +59,7 @@ public class ScoreUIManager : MonoBehaviour
         }
     }
 
-    private void UpdateScoreDisplay(int score)
+    public void UpdateScoreDisplay(int score)
     {
         if (scoreText != null)
         {
@@ -66,7 +67,7 @@ public class ScoreUIManager : MonoBehaviour
         }
     }
 
-    private void UpdateStarsDisplay(int stars)
+    public void UpdateStarsDisplay(int stars)
     {
         if (starImages != null)
         {
