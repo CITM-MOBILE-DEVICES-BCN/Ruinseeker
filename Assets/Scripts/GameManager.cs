@@ -27,11 +27,13 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         navManager = new NavigationManager();
+
     }
 
     public void ChangeScene(string sceneName)
     {
         navManager.ChangeScene(sceneName);
+        ScoreManager.Instance.ResetLevelScore();
     }
 
     public void ActivateCanvas(GameObject canvas)
@@ -42,5 +44,10 @@ public class GameManager : MonoBehaviour
     public void DeactivateCanvas(GameObject canvas)
     {
         navManager.DeactivateCanvas(canvas);
+    }
+
+    public void FinishLevel(ScoreManager scoreManager)
+    {
+        scoreManager.FinishLevel();
     }
 }
