@@ -17,7 +17,14 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Update()
     {
-        Patrol();
+        if (IsPlayerInRange())
+        {
+            OnPlayerDetected();
+        }
+        else
+        {
+            Patrol();
+        }
     }
 
     public abstract void OnPlayerDetected();

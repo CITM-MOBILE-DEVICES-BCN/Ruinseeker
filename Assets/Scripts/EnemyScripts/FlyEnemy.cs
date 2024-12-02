@@ -8,20 +8,13 @@ public class FlyEnemy : Enemy
     
     public override void Patrol()
     {
-        if (!isChasingPlayer && IsPlayerInRange())
-        {
-            OnPlayerDetected();
-        }
-
-        if (isChasingPlayer)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
-        }
+        // Lógica de patrulla 
     }
 
     public override void OnPlayerDetected()
     {
         isChasingPlayer = true;
+        transform.position = Vector3.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
     }
 
     public override void Die()
