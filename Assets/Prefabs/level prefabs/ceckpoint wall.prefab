@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9013207129436099334}
   - component: {fileID: 883564462094591967}
   - component: {fileID: 4381209445229272315}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ceckpoint wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
