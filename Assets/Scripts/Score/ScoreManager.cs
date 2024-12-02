@@ -1,9 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
+
+    public event Action<int> OnGemsChanged;
+    public event Action<int> OnScoreChanged;
+    public event Action<int> OnStarsChanged;
+
     #region Singleton
     public static ScoreManager Instance { get; private set; }
 
@@ -33,7 +39,9 @@ public class ScoreManager : MonoBehaviour
     public void AddGems(int amount)
     {
         currentGems += amount;
-        // Could trigger UI update event here
+        Debug.Log("Current Gems: " + currentGems);
+        OnGemsChanged?.Invoke(currentGems);
+        OnStarsChanged?.Invoke(CalculateStars());
     }
 
     public bool TrySpendGems(int amount)
