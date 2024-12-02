@@ -12,11 +12,22 @@ public class MineEnemy : Enemy
         if (isActivated)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+
+            if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+            {
+                Die();
+            }
         }
         else if (IsPlayerInRange())
         {
-            OnPlayerDetected();  
+            OnPlayerDetected();
         }
+
+    }
+
+    protected override void Update()
+    {
+        Patrol();
     }
 
     public override void OnPlayerDetected()

@@ -15,15 +15,23 @@ public class ShadowEnemy : Enemy
         {
             Debug.LogError("Player transform not assigned to shadow");
         }
+        else
+        {
+            Debug.Log("Player transform assigned to shadow");
+        }
     }
 
     public override void Patrol()
     {
         if (playerPositions.Count > 0)
         {
-            Vector3 nextPosition = playerPositions.Dequeue();
-            Debug.Log($"Mimicking position: {nextPosition}");
+            Vector3 nextPosition = playerPositions.Peek();
             transform.position = Vector3.MoveTowards(transform.position, nextPosition, moveSpeed * Time.deltaTime);
+
+            if (Vector3.Distance(transform.position, nextPosition) < 0.1f)
+            {
+                playerPositions.Dequeue();
+            }
         }
     }
 
@@ -38,21 +46,24 @@ public class ShadowEnemy : Enemy
 
     private IEnumerator RecordPlayerMovement()
     {
-        if (player != null)
+        while (true)
         {
-            playerPositions.Enqueue(player.position);
-            Debug.Log($"Recording position: {player.position}");
-
-            if (playerPositions.Count > Mathf.CeilToInt(movementDelay / Time.fixedDeltaTime))
+            if (player != null)
             {
-                playerPositions.Dequeue();
-            }
-        }
-        else
-        {
-            Debug.LogWarning("Player transform is null when assigning movements");
-        }
+                playerPositions.Enqueue(player.position);
+                Debug.Log($"Recording position: {player.position}");
 
-        yield return new WaitForFixedUpdate();
+                if (playerPositions.Count > Mathf.CeilToInt(movementDelay / Time.fixedDeltaTime))
+                {
+                    playerPositions.Dequeue();
+                }
+            }
+            else
+            {
+                Debug.LogWarning("Player transform is null when assigning movements");
+            }
+
+            yield return new WaitForFixedUpdate();
+        }
     }
 }
