@@ -9,13 +9,14 @@ public class PlayerMovement : MonoBehaviour
     public float wallJumpForce = 15f;
     public float wallCheckDistance = 0.5f;
     public float groundCheckDistance = 0.2f;
+    public float leftRightGroundCheckOffset = 0.2f;
+    public float wallCheckOffset = 0.2f;
     public float gravityScale = 1f;
 
     private bool facingRight = true;
     private bool isGrounded;
     private bool isWallSliding;
     private bool canJump = true;
-
     private enum PlayerState { Walking, Jumping, WallSliding, WallJumping }
     private PlayerState currentState;
 
@@ -42,26 +43,29 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer);
-        isGrounded = hit.collider != null;
+        RaycastHit2D GroundHitLeft = Physics2D.Raycast(transform.position + new Vector3(-leftRightGroundCheckOffset, 0, 0), Vector2.down, groundCheckDistance, groundLayer);
+        RaycastHit2D GroundHitMiddle = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer);
+        RaycastHit2D GroundHitRight = Physics2D.Raycast(transform.position + new Vector3(leftRightGroundCheckOffset, 0, 0), Vector2.down, groundCheckDistance, groundLayer);
 
-        RaycastHit2D hit2 = Physics2D.Raycast(transform.position, facingRight ? Vector2.right : Vector2.left, wallCheckDistance, wallLayer);
-        isWallSliding = hit2.collider != null;
+        isGrounded = GroundHitLeft.collider != null || GroundHitMiddle.collider != null || GroundHitRight.collider != null;
 
-        // Aplicar gravedad solo si no estás en el suelo o deslizándote por la pared
+        RaycastHit2D WallHitTop = Physics2D.Raycast(transform.position + new Vector3(0, wallCheckOffset, 0), facingRight ? Vector2.right : Vector2.left, wallCheckDistance, wallLayer);
+        RaycastHit2D WallHitMiddle = Physics2D.Raycast(transform.position, facingRight ? Vector2.right : Vector2.left, wallCheckDistance, wallLayer);
+        RaycastHit2D WallHitBottom = Physics2D.Raycast(transform.position + new Vector3(0, -wallCheckOffset, 0), facingRight ? Vector2.right : Vector2.left, wallCheckDistance, wallLayer);
+
+        isWallSliding = WallHitTop.collider != null || WallHitMiddle.collider != null || WallHitBottom.collider != null;
+
         if (!isGrounded && !isWallSliding)
         {
             rb.velocity += Vector2.down * gravityScale * Time.fixedDeltaTime;
         }
 
-        // Si está tocando el suelo y la velocidad en Y es negativa, detener el movimiento en Y
         if (isGrounded && rb.velocity.y < 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, 0);
-            canJump = true;  // Permitir el salto solo cuando haya tocado el suelo
+            canJump = true;
         }
 
-        // Manejo de los estados según la situación
         switch (currentState)
         {
             case PlayerState.Walking:
@@ -78,11 +82,16 @@ public class PlayerMovement : MonoBehaviour
                 break;
         }
 
-        // Si no hay pared y no está en el suelo, el jugador debe caer
+        if (currentState != PlayerState.WallSliding)
+        {
+            currentState = PlayerState.Walking;
+        }
+
         if (!isWallSliding && !isGrounded)
         {
-            currentState = PlayerState.Jumping;  // Deberías estar en estado de salto o caída
+            currentState = PlayerState.Jumping;
         }
+
     }
 
     private void HandleState()
@@ -103,10 +112,6 @@ public class PlayerMovement : MonoBehaviour
                     {
                         currentState = PlayerState.WallSliding;
                     }
-                    else if (isGrounded)
-                    {
-                        currentState = PlayerState.Walking;
-                    }
                 }
                 break;
 
@@ -115,10 +120,10 @@ public class PlayerMovement : MonoBehaviour
                 {
                     currentState = PlayerState.Walking;
                 }
-                else if (Input.GetMouseButtonDown(0)) // Detectar clic para iniciar el salto
+                else if (Input.GetMouseButtonDown(0))
                 {
                     currentState = PlayerState.WallJumping;
-                    WallJump(); // Ejecutar directamente el salto desde la pared
+                    WallJump();
                 }
                 break;
 
@@ -151,7 +156,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (currentState == PlayerState.Walking || currentState == PlayerState.WallSliding)
+        if (currentState == PlayerState.Walking)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             currentState = PlayerState.Jumping;
@@ -174,16 +179,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void WallJump()
     {
-        float wallJumpDirection = facingRight ? -1 : 1;
-        rb.velocity = new Vector2(wallJumpDirection * speed, wallJumpForce);
-
-        Invoke(nameof(Flip), 0.1f);
-    }
-
-    private void EndWallJump()
-    {
+        Flip();
+        float moveDirection = facingRight ? 1 : -1;
+        rb.velocity = new Vector2(speed * moveDirection, wallJumpForce);
         currentState = PlayerState.Jumping;
-        canJump = false;
     }
 
     private void Flip()
@@ -195,7 +194,13 @@ public class PlayerMovement : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position + new Vector3(-leftRightGroundCheckOffset, 0, 0), transform.position + new Vector3(-leftRightGroundCheckOffset, 0, 0) + Vector3.down * groundCheckDistance);
         Gizmos.DrawLine(transform.position, transform.position + Vector3.down * groundCheckDistance);
+        Gizmos.DrawLine(transform.position + new Vector3(leftRightGroundCheckOffset, 0, 0), transform.position + new Vector3(leftRightGroundCheckOffset, 0, 0) + Vector3.down * groundCheckDistance);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(transform.position + new Vector3(0, wallCheckOffset, 0), transform.position + new Vector3(0, wallCheckOffset, 0) + (facingRight ? Vector3.right : Vector3.left) * wallCheckDistance);
         Gizmos.DrawLine(transform.position, transform.position + (facingRight ? Vector3.right : Vector3.left) * wallCheckDistance);
+        Gizmos.DrawLine(transform.position + new Vector3(0, -wallCheckOffset, 0), transform.position + new Vector3(0, -wallCheckOffset, 0) + (facingRight ? Vector3.right : Vector3.left) * wallCheckDistance);
     }
 }
