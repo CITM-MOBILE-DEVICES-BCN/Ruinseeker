@@ -32,7 +32,6 @@ public class ScoreUIManager : MonoBehaviour
         ScoreManager.Instance.OnGemsChanged += UpdateGemsDisplay;
         ScoreManager.Instance.OnScoreChanged += UpdateScoreDisplay;
         ScoreManager.Instance.OnStarsChanged += UpdateStarsDisplay;
-        ScoreManager.Instance.OnDisplayStars += UpdateStarsDisplay;
 
         // Initialize displays
         UpdateGemsDisplay(ScoreManager.Instance.CurrentGems);
@@ -63,7 +62,7 @@ public class ScoreUIManager : MonoBehaviour
     {
         if (scoreText != null)
         {
-            scoreText.text = $"Score: {score:N0}";
+            scoreText.text = $"Score: {score}";
         }
     }
 

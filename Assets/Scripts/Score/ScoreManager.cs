@@ -9,7 +9,6 @@ public class ScoreManager : MonoBehaviour
     public event Action<int> OnGemsChanged;
     public event Action<int> OnScoreChanged;
     public event Action<int> OnStarsChanged;
-    public event Action<int> OnDisplayStars;
 
     #region Singleton
     public static ScoreManager Instance { get; private set; }
@@ -27,7 +26,7 @@ public class ScoreManager : MonoBehaviour
     #endregion
 
     [Header("Score Settings")]
-    [SerializeField] private int gemsPerStar = 1;
+    [SerializeField] private int gemsPerStar = 2;
     [SerializeField] private int pointsPerStar = 10000;
 
     private int currentGems;
@@ -36,6 +35,8 @@ public class ScoreManager : MonoBehaviour
 
     public int CurrentGems => currentGems;
     public int TotalScore => totalScore;
+    public bool IsLevelCompleted => hasLevelBeenCompleted;
+
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
@@ -50,7 +51,6 @@ public class ScoreManager : MonoBehaviour
         currentGems += amount;
         Debug.Log("Current Gems: " + currentGems);
         OnGemsChanged?.Invoke(currentGems);
-        OnStarsChanged?.Invoke(CalculateStars());
     }
 
     public bool TrySpendGems(int amount)
@@ -76,26 +76,28 @@ public class ScoreManager : MonoBehaviour
     public int CalculateStars()
     {
         return Mathf.Min(3, currentGems / gemsPerStar);
+
     }
 
+    private bool hasLevelBeenCompleted = false;
     public void FinishLevel()
     {
+        if (hasLevelBeenCompleted) return;
+
         int stars = CalculateStars();
         totalScore += stars * pointsPerStar;
 
         OnScoreChanged?.Invoke(totalScore);
         OnStarsChanged?.Invoke(stars);
 
-        // Here you could save the score/stars to persistent storage
+        hasLevelBeenCompleted = true;
+
         SaveLevelProgress(stars);
 
-        OnDisplayStars?.Invoke(stars);
-        // update score display
-        ScoreUIManager.Instance.UpdateScoreDisplay(totalScore);
-        ScoreUIManager.Instance.UpdateStarsDisplay(stars);
-
-        // Print out console level has finished
         Debug.Log("Level has finished");
+        Debug.Log($"Stars: {stars}");
+        Debug.Log($"Score: {totalScore}");
+        Debug.Log($"Gems: {currentGems}");
     }
 
     public void SaveLevelProgress(int stars)
@@ -112,5 +114,6 @@ public class ScoreManager : MonoBehaviour
     {
         currentGems = 0;
         gemsAtLastCheckpoint = 0;
+        hasLevelBeenCompleted = false;
     }
 }
