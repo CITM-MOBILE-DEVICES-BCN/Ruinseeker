@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
@@ -37,6 +38,11 @@ public abstract class Enemy : MonoBehaviour
     protected bool IsPlayerInRange()
     {
         return Vector2.Distance(transform.position, player.position) <= detectionRange;
+    }
+
+    public virtual void OnCollisionEnter2D(Collision2D collision)
+    {
+        
     }
 
 }

@@ -12,7 +12,7 @@ public class BoomerangEnemy : Enemy
 
     public override void Patrol()
     {
-        // Lógica de patrulla 
+        // Lógica de patrulla (No hay)s
     }
 
     public override void OnPlayerDetected()
