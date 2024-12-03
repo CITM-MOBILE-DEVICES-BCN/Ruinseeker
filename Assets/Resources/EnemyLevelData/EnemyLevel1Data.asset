@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 658fffa288339274195eee6b442af81f, type: 3}
   m_Name: EnemyLevel1Data
   m_EditorClassIdentifier: 
-  enemySpawnPoints: []
+  enemySpawnPoints:
+  - position: {x: 2, y: 7, z: 0}
+    enemyType: BoomerangGuy
+  - position: {x: 1.88, y: 25, z: 0}
+    enemyType: Fly
+  - position: {x: 4, y: 34, z: 0}
+    enemyType: Shadow
