@@ -143,7 +143,6 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            // Aplicar el movimiento normal según el estado actual
             switch (currentState)
             {
                 case PlayerState.Walking:
@@ -160,7 +159,6 @@ public class PlayerMovement : MonoBehaviour
                     break;
             }
 
-            // Actualizar el estado del jugador si no está haciendo dash
             if (currentState != PlayerState.WallSliding)
             {
                 currentState = PlayerState.Walking;
