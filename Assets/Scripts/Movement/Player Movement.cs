@@ -147,6 +147,7 @@ public class PlayerMovement : MonoBehaviour
         if (isDashing)
         {
             float moveDirection = facingRight ? 1 : -1;
+            if (invertedControlls) moveDirection *= -1;
             rb.velocity = new Vector2(dashSpeed * moveDirection, 0);
         }
         else
@@ -304,5 +305,10 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawLine(transform.position + new Vector3(0, wallCheckOffset, 0), transform.position + new Vector3(0, wallCheckOffset, 0) + (facingRight ? Vector3.right : Vector3.left) * wallCheckDistance);
         Gizmos.DrawLine(transform.position, transform.position + (facingRight ? Vector3.right : Vector3.left) * wallCheckDistance);
         Gizmos.DrawLine(transform.position + new Vector3(0, -wallCheckOffset, 0), transform.position + new Vector3(0, -wallCheckOffset, 0) + (facingRight ? Vector3.right : Vector3.left) * wallCheckDistance);
+    }
+
+    public void InvertControls()
+    {
+        invertedControlls = !invertedControlls;
     }
 }
