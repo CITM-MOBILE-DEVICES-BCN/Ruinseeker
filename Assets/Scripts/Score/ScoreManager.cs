@@ -37,15 +37,6 @@ public class ScoreManager : MonoBehaviour
     public int TotalScore => totalScore;
     public bool IsLevelCompleted => hasLevelBeenCompleted;
 
-
-    protected virtual void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("FinishLine"))
-        {
-
-        }
-    }
-
     public void AddGems(int amount)
     {
         currentGems += amount;
@@ -92,21 +83,10 @@ public class ScoreManager : MonoBehaviour
 
         hasLevelBeenCompleted = true;
 
-        SaveLevelProgress(stars);
-
         Debug.Log("Level has finished");
         Debug.Log($"Stars: {stars}");
         Debug.Log($"Score: {totalScore}");
         Debug.Log($"Gems: {currentGems}");
-    }
-
-    public void SaveLevelProgress(int stars)
-    {
-        // Implementation for saving progress (could use PlayerPrefs or your own save system)
-        string currentSceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
-        PlayerPrefs.SetInt($"{currentSceneName}_Stars", stars);
-        PlayerPrefs.SetInt($"{currentSceneName}_Score", totalScore);
-        PlayerPrefs.Save();
     }
 
     public void ResetLevelScore()
