@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -16,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     private float dashTimer;
     private float doubleClickTime = 0.25f;
     private float lastClickTime;
+    [HideInInspector] public bool invertedControlls = false;
+    private bool hasDashedInAir;
 
     [Header("Ground & Wall Detection")]
     [SerializeField] private float wallCheckDistance = 0.5f;
@@ -65,7 +68,11 @@ public class PlayerMovement : MonoBehaviour
             float timeSinceLastClick = Time.time - lastClickTime;
             if (timeSinceLastClick <= doubleClickTime)
             {
-                Dash();
+                if (!hasDashedInAir)
+                {
+                    Dash();
+                    hasDashedInAir = true;
+                }
             }
             lastClickTime = Time.time;
         }
@@ -97,6 +104,7 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded)
         {
             coyoteTimer = coyoteTime;
+            if (!isDashing) hasDashedInAir = false;
         }
         else
         {
@@ -238,6 +246,7 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             currentState = PlayerState.Jumping;
             coyoteTimer = 0;
+            hasDashedInAir = false;
         }
     }
 
@@ -260,6 +269,7 @@ public class PlayerMovement : MonoBehaviour
         float moveDirection = facingRight ? 1 : -1;
         rb.velocity = new Vector2(speed * moveDirection, wallJumpForce);
         currentState = PlayerState.Jumping;
+        hasDashedInAir = false;
     }
 
     private void Dash()
