@@ -26,10 +26,10 @@ public class RatatulaEnemy : Enemy
 
     private IEnumerator InvertControls()
     {
-        // Cambiar behaviour maybe?
-        // PlayerController.Instance.InvertControls(true);
+        Debug.Log("Attached Ratatula to player");
+        player.GetComponent<PlayerMovement>().InvertControls();
         yield return new WaitForSeconds(5f);
-        // Falta invertir los controles, o el playerMovement es un Singleton o pillo una referencia al player
+        player.GetComponent<PlayerMovement>().InvertControls();
         Die();
     }
 
