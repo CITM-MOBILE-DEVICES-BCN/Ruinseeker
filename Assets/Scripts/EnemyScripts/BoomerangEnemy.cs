@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BoomerangEnemy : Enemy
 {
@@ -56,6 +57,11 @@ public class BoomerangEnemy : Enemy
             {
                 Die();
             }
+            else
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
         }
+     
     }
 }
