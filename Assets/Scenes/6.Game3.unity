@@ -6074,6 +6074,7 @@ GameObject:
   m_Component:
   - component: {fileID: 964563255}
   - component: {fileID: 964563254}
+  - component: {fileID: 964563256}
   m_Layer: 0
   m_Name: ceckpoint 1 (1)
   m_TagString: Untagged
@@ -6148,6 +6149,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &964563256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964563253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 152f9a592b9fed4499d5379073dd9dc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &994537230
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13884,6 +13897,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1801496894}
   - component: {fileID: 1801496893}
+  - component: {fileID: 1801496895}
   m_Layer: 0
   m_Name: ceckpoint 1
   m_TagString: Untagged
@@ -13958,6 +13972,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1801496895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801496892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 152f9a592b9fed4499d5379073dd9dc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1852767629
 GameObject:
   m_ObjectHideFlags: 0
