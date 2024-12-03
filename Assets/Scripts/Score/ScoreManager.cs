@@ -109,7 +109,6 @@ public class ScoreManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    // Call this when loading a new level
     public void ResetLevelScore()
     {
         currentGems = 0;
