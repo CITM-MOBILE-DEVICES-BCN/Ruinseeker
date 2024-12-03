@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
 {
+    GameManager gameManager;
+
+    private void Awake()
+    {
+        gameManager = GameObject.FindGameObjectWithTag("Player").GetComponent<GameManager>();
+
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            GameManager.Instance.UpdateCheckpointPosition(transform.position);
+            gameManager.UpdateCheckpointPosition(transform.position);
             Debug.Log("checkpoint saved");
         }
 
