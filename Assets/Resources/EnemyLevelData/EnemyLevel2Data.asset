@@ -12,4 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 658fffa288339274195eee6b442af81f, type: 3}
   m_Name: EnemyLevel2Data
   m_EditorClassIdentifier: 
-  enemySpawnPoints: []
+  enemySpawnPoints:
+  - position: {x: 0, y: 0, z: 0}
+    enemyType: 
+  - position: {x: 1.5, y: 24, z: 0}
+    enemyType: SubmarineMine
+  - position: {x: -2, y: 23, z: 0}
+    enemyType: SubmarineMine
+  - position: {x: 1, y: 28.5, z: 0}
+    enemyType: BoomerangGuy
+  - position: {x: 0, y: 0, z: 0}
+    enemyType: 
