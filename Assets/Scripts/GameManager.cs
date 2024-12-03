@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
         navManager = new NavigationManager();
         checkpointPosition = transform.position;
 
-        /*SaveSystem saveSystem = new SaveSystem();
+       /* SaveSystem saveSystem = new SaveSystem();
         SaveData saveData = new SaveData();
         saveData.score = 10;
         saveSystem.Save(saveData);*/
@@ -40,6 +40,15 @@ public class GameManager : MonoBehaviour
     public void UpdateCheckpointPosition(Vector2 pos)
     {
         checkpointPosition = pos;
+
+        SaveSystem saveSystem = new SaveSystem();
+        SaveData saveData = new SaveData()
+        {
+            lastCheckpointPosition = checkpointPosition
+
+        };
+
+        saveSystem.Save(saveData);
     }
 
     public Vector2 GetCheckpointPosition()

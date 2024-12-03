@@ -16,7 +16,7 @@ public class SaveData
     public int score;
 }
 
-/*public class SaveSystem: ISavesystem
+public class SaveSystem: ISavesystem
 {
     private string filePath = Application.persistentDataPath + "/setting.json";
     
@@ -28,13 +28,19 @@ public class SaveData
         SaveData loadedData = JsonUtility.FromJson<SaveData>(json);
     }
 
-    SaveData ISavesystem.Load(SaveData saveData)
+    SaveData ISavesystem.Load()
     {
         if (File.Exists(filePath))
         {
             string json = File.ReadAllText(filePath);
-            JsonUtility.FromJsonOverwrite(json, saveData);
-        }      
+            SaveData saveData = JsonUtility.FromJson<SaveData>(json); 
+            return saveData; 
+        }
+
+        else
+        {      
+            Debug.LogWarning("Save file not found. Returning default SaveData.");
+            return new SaveData(); 
+        }
     }
 }
-*/
