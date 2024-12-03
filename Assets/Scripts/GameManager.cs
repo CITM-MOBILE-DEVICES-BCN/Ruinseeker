@@ -24,17 +24,27 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    Vector2 checkpointPos;
+    Vector2 checkpointPosition;
 
     private void Start()
     {
         navManager = new NavigationManager();
-        checkpointPos = transform.position;
+        checkpointPosition = transform.position;
+
+        /*SaveSystem saveSystem = new SaveSystem();
+        SaveData saveData = new SaveData();
+        saveData.score = 10;
+        saveSystem.Save(saveData);*/
     }
 
-    public void UpdateCheckpoint(Vector2 pos)
+    public void UpdateCheckpointPosition(Vector2 pos)
     {
-        checkpointPos = pos;
+        checkpointPosition = pos;
+    }
+
+    public Vector2 GetCheckpointPosition()
+    { 
+        return checkpointPosition; 
     }
 
     public void ChangeScene(string sceneName)
