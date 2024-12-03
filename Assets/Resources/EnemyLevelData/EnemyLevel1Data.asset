@@ -15,7 +15,7 @@ MonoBehaviour:
   enemySpawnPoints:
   - position: {x: 2, y: 7, z: 0}
     enemyType: BoomerangGuy
-  - position: {x: 1.88, y: 25, z: 0}
+  - position: {x: -2, y: 29, z: 0}
     enemyType: Fly
   - position: {x: 4, y: 34, z: 0}
     enemyType: Shadow

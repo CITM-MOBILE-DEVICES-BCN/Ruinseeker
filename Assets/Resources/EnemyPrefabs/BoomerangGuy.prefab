@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 993227091919de241b5003f117c703fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRange: 5
+  detectionRange: 2
   moveSpeed: 2
   boomerangPrefab: {fileID: 4803253915241681143, guid: 939cc07d170e6324ba733c66d3e2b41c, type: 3}
   boomerangSpeed: 5
