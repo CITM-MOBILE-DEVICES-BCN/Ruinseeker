@@ -12,24 +12,22 @@ public class Boomerang : MonoBehaviour
 
     public bool HasReturned => hasReturned;
 
-    public void Initialize(Vector3 startPos, float range, float boomerangSpeed)
+    public void Initialize(Vector3 startPos, Vector3 playerPos, float boomerangSpeed)
     {
         startPosition = startPos;
         speed = boomerangSpeed;
-        targetPosition = startPos + (transform.right * range);
+        Vector3 directionToPlayer = (playerPos - startPos).normalized;
+        targetPosition = startPos + directionToPlayer * Vector3.Distance(startPos, playerPos);
     }
 
     private void Update()
     {
-        if (!hasReturned)
+        if (!returning)
         {
-            if (!returning)
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+            if (Vector3.Distance(transform.position, targetPosition)<0.1f)
             {
-                transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-                if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
-                {
-                    returning = true;
-                }
+                returning = true;
             }
         }
         else

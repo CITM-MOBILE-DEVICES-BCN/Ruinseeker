@@ -22,4 +22,19 @@ public class FlyEnemy : Enemy
         Debug.Log("Fly defeated!");
         base.Die();
     }
+
+    public override void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Vector2 collisionDirection = (collision.transform.position - transform.position).normalized;
+
+            float angle = Vector2.Angle(Vector2.up, collisionDirection);
+
+            if (angle < 45)
+            {
+                Die();
+            }
+        }
+    }
 }

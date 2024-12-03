@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4881532868713992214}
   - component: {fileID: 8239237681381651736}
   - component: {fileID: 2652219476333097184}
+  - component: {fileID: -4101794005266491709}
   m_Layer: 0
   m_Name: BoomerangGuy
   m_TagString: Untagged
@@ -102,3 +103,38 @@ MonoBehaviour:
   boomerangPrefab: {fileID: 4803253915241681143, guid: 939cc07d170e6324ba733c66d3e2b41c, type: 3}
   boomerangSpeed: 5
   boomerangRange: 10
+--- !u!70 &-4101794005266491709
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668100393047570217}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0
