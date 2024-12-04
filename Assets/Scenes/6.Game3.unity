@@ -4893,6 +4893,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1647056330427079766, guid: f33ca0e1ac41ca045b782077a8fb1759, type: 3}
+      propertyPath: enemySpawner
+      value: 
+      objectReference: {fileID: 536876643}
+    - target: {fileID: 1647056330427079766, guid: f33ca0e1ac41ca045b782077a8fb1759, type: 3}
       propertyPath: startCheckpoint
       value: 
       objectReference: {fileID: 766873717}
@@ -5499,11 +5503,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1291688903311259200, guid: cff24dc13ffe7b04480d3c7a497ac652, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.570002
+      value: -0.008353472
       objectReference: {fileID: 0}
     - target: {fileID: 1291688903311259200, guid: cff24dc13ffe7b04480d3c7a497ac652, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.0272002
+      value: -0.4417901
       objectReference: {fileID: 0}
     - target: {fileID: 5915186204202175843, guid: cff24dc13ffe7b04480d3c7a497ac652, type: 3}
       propertyPath: m_Name

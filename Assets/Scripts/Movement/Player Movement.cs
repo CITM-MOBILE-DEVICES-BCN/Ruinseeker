@@ -128,7 +128,7 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D WallHitMiddle = Physics2D.Raycast(transform.position, facingRight ? Vector2.right : Vector2.left, wallCheckDistance, wallLayer);
         RaycastHit2D WallHitBottom = Physics2D.Raycast(transform.position + new Vector3(0, -wallCheckOffset, 0), facingRight ? Vector2.right : Vector2.left, wallCheckDistance, wallLayer);
 
-        isWallSliding = WallHitTop.collider != null || WallHitMiddle.collider != null || WallHitBottom.collider != null && rb.velocity.y < 0;
+        isWallSliding = WallHitTop.collider != null || WallHitMiddle.collider != null || WallHitBottom.collider != null;
 
         RaycastHit2D HeadHitLeft = Physics2D.Raycast(transform.position + new Vector3(-leftRightGroundCheckOffset, 0, 0), Vector2.up, groundCheckDistance, headLayer);
         RaycastHit2D HeadHitMiddle = Physics2D.Raycast(transform.position, Vector2.up, groundCheckDistance, headLayer);
@@ -150,21 +150,21 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, 0);
         }
 
-        //NOHACERCASO
-        if (rb.velocity.y <= 0)
-        {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer);
-            if (hit.collider != null)
-            {
-                float distanceToPlatform = hit.distance;
+        ////NOHACERCASO
+        //if (rb.velocity.y <= 0)
+        //{
+        //    RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer);
+        //    if (hit.collider != null)
+        //    {
+        //        float distanceToPlatform = hit.distance;
 
-                if (distanceToPlatform < fudgeThreshold)
-                {
-                    transform.position = new Vector2(transform.position.x, hit.point.y + playerCollider.bounds.extents.y);
-                    rb.velocity = new Vector2(rb.velocity.x, 0);
-                }
-            }
-        }
+        //        if (distanceToPlatform < fudgeThreshold)
+        //        {
+        //            transform.position = new Vector2(transform.position.x, hit.point.y + playerCollider.bounds.extents.y);
+        //            rb.velocity = new Vector2(rb.velocity.x, 0);
+        //        }
+        //    }
+        //}
 
         if (isDashing)
         {
