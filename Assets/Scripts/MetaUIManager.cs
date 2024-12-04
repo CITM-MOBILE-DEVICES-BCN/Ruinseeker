@@ -68,5 +68,6 @@ public class MetaUIManager : MonoBehaviour
     public void LoadLevel(string levelName)
     {
         GameManager.Instance.ChangeScene(levelName);
+        ScoreManager.Instance.ResetLevelScore();
     }
 }
