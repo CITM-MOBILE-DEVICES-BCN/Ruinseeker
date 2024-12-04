@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.IO;
+using System.Collections.Generic;
 
 public interface ISaveSystem
 {
@@ -8,10 +9,20 @@ public interface ISaveSystem
 }
 
 [System.Serializable]
+public class LevelData
+{
+    public string levelName;
+    public int stars;
+    public int highestGems;
+}
+
+[System.Serializable]
 public class SaveData
 {
     public Vector2 lastCheckpointPosition;
-    public int score;
+    public int totalScore;
+    public int totalGems;
+    public List<LevelData> levelProgress = new List<LevelData>();
 }
 
 public class SaveSystem : ISaveSystem
@@ -35,7 +46,12 @@ public class SaveSystem : ISaveSystem
         if (File.Exists(filePath))
         {
             string json = File.ReadAllText(filePath);
-            return JsonUtility.FromJson<SaveData>(json);
+            SaveData saveData = JsonUtility.FromJson<SaveData>(json);
+
+            if (saveData.levelProgress == null)
+                saveData.levelProgress = new List<LevelData>();
+
+            return saveData; ;
         }
         else
         {

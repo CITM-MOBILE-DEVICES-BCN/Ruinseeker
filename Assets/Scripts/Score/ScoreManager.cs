@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
@@ -9,6 +10,9 @@ public class ScoreManager : MonoBehaviour
     public event Action<int> OnGemsChanged;
     public event Action<int> OnScoreChanged;
     public event Action<int> OnStarsChanged;
+    public event Action<int> OnTotalGemsChanged;
+    public event Action OnProgressUpdated;
+
 
     #region Singleton
     public static ScoreManager Instance { get; private set; }
@@ -26,21 +30,39 @@ public class ScoreManager : MonoBehaviour
     #endregion
 
     [Header("Score Settings")]
-    [SerializeField] private int gemsPerStar = 2;
+    [SerializeField] private int gemsPerStar = 5;
     [SerializeField] private int pointsPerStar = 10000;
 
+    private SaveSystem saveSystem;
+    private SaveData saveData;
     private int currentGems;
     private int totalScore;
     private int gemsAtLastCheckpoint;
+    private bool hasLevelBeenCompleted = false;
+
 
     public int CurrentGems => currentGems;
-    public int TotalScore => totalScore;
+    public int TotalScore => saveData.totalScore;
+    public int TotalGems => saveData.totalGems;
     public bool IsLevelCompleted => hasLevelBeenCompleted;
 
+    private void Start()
+    {
+        saveSystem = new SaveSystem();
+        LoadProgress();
+    }
+    private void LoadProgress()
+    {
+        saveData = saveSystem.Load();
+    }
+    public (int stars, int maxStars) GetLevelProgress(string levelName)
+    {
+        var levelData = saveData.levelProgress.FirstOrDefault(l => l.levelName == levelName);
+        return (levelData?.stars ?? 0, 3);
+    }
     public void AddGems(int amount)
     {
         currentGems += amount;
-        //Debug.Log("Current Gems: " + currentGems);
         OnGemsChanged?.Invoke(currentGems);
     }
 
@@ -49,6 +71,7 @@ public class ScoreManager : MonoBehaviour
         if (currentGems >= amount)
         {
             currentGems -= amount;
+            OnGemsChanged?.Invoke(currentGems);
             return true;
         }
         return false;
@@ -62,6 +85,7 @@ public class ScoreManager : MonoBehaviour
     public void ResetToLastCheckpoint()
     {
         currentGems = gemsAtLastCheckpoint;
+        OnGemsChanged?.Invoke(currentGems);
     }
 
     public int CalculateStars()
@@ -70,23 +94,51 @@ public class ScoreManager : MonoBehaviour
 
     }
 
-    private bool hasLevelBeenCompleted = false;
     public void FinishLevel()
     {
         if (hasLevelBeenCompleted) return;
 
+        string currentLevel = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
         int stars = CalculateStars();
-        totalScore += stars * pointsPerStar;
+
+        // Update level progress
+        var levelData = saveData.levelProgress.FirstOrDefault(l => l.levelName == currentLevel);
+        if (levelData == null)
+        {
+            levelData = new LevelData { levelName = currentLevel };
+            saveData.levelProgress.Add(levelData);
+        }
+
+        // Only update if we got more stars
+        if (stars > levelData.stars)
+        {
+            int starDifference = stars - levelData.stars;
+            saveData.totalScore += starDifference * pointsPerStar;
+            levelData.stars = stars;
+        }
+
+        // Update gems if we collected more
+        if (currentGems > levelData.highestGems)
+        {
+            int gemDifference = currentGems - levelData.highestGems;
+            saveData.totalGems += gemDifference;
+            levelData.highestGems = currentGems;
+        }
 
         OnScoreChanged?.Invoke(totalScore);
         OnStarsChanged?.Invoke(stars);
+        OnTotalGemsChanged?.Invoke(saveData.totalGems);
+        OnProgressUpdated?.Invoke();
 
         hasLevelBeenCompleted = true;
+
+        saveSystem.Save(saveData);
 
         Debug.Log("Level has finished");
         Debug.Log($"Stars: {stars}");
         Debug.Log($"Score: {totalScore}");
         Debug.Log($"Gems: {currentGems}");
+        Debug.Log($"Total Gems: {saveData.totalGems}");
     }
 
     public void ResetLevelScore()
