@@ -94,8 +94,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
-
     public void WaitForSeconds(float delay)
     {
         StartCoroutine(WaitCoroutine(delay));

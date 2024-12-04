@@ -9658,6 +9658,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1649718141539938623, guid: dcc9f00d015110443ae0f6106d810bb8, type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1924629394}
+    - target: {fileID: 1649718141539938623, guid: dcc9f00d015110443ae0f6106d810bb8, type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeScene
+      objectReference: {fileID: 0}
     - target: {fileID: 3985407183740866819, guid: dcc9f00d015110443ae0f6106d810bb8, type: 3}
       propertyPath: m_Name
       value: GetoutPortal
