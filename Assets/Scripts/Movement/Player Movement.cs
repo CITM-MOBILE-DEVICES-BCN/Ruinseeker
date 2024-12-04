@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float wallCheckOffset = 0.2f;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
+    [SerializeField] private LayerMask headLayer;
 
     [Header("Coyote Time")]
     [SerializeField, Range(0f, 0.5f)] private float coyoteTime = 0.1f;
@@ -91,6 +92,8 @@ public class PlayerMovement : MonoBehaviour
                 EndDash();
             }
         }
+
+        Debug.Log(currentState);
     }
 
     private void FixedUpdate()
@@ -116,6 +119,24 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D WallHitBottom = Physics2D.Raycast(transform.position + new Vector3(0, -wallCheckOffset, 0), facingRight ? Vector2.right : Vector2.left, wallCheckDistance, wallLayer);
 
         isWallSliding = WallHitTop.collider != null || WallHitMiddle.collider != null || WallHitBottom.collider != null;
+
+        RaycastHit2D HeadHitLeft = Physics2D.Raycast(transform.position + new Vector3(-leftRightGroundCheckOffset, 0, 0), Vector2.up, groundCheckDistance, headLayer);
+        RaycastHit2D HeadHitMiddle = Physics2D.Raycast(transform.position, Vector2.up, groundCheckDistance, headLayer);
+        RaycastHit2D HeadHitRight = Physics2D.Raycast(transform.position + new Vector3(leftRightGroundCheckOffset, 0, 0), Vector2.up, groundCheckDistance, headLayer);
+
+        if (HeadHitLeft.collider != null && HeadHitMiddle.collider == null && HeadHitRight.collider == null)
+        {
+            rb.AddForce(Vector2.right * 2, ForceMode2D.Impulse);
+        }
+        else if (HeadHitRight.collider != null && HeadHitMiddle.collider == null && HeadHitLeft.collider == null)
+        {
+            rb.AddForce(Vector2.left * 2, ForceMode2D.Impulse);
+        }
+        else
+        {
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
+        }
+
 
         if (!isGrounded && !isWallSliding)
         {
