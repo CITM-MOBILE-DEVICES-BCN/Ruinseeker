@@ -316,7 +316,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Dead"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            DeadFunction();
         }
+    }
+
+    public void DeadFunction()
+    {
+        rb.velocity = Vector3.zero;
+        transform.position = GameManager.Instance.GetCheckpointPosition();
     }
 }

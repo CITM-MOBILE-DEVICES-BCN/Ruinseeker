@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private NavigationManager navManager;
     private SaveSystem saveSystem;
 
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -27,15 +28,15 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    Vector2 checkpointPosition;
+    public Vector2 checkpointPosition;
+    public Vector2 startingPosition;
+
 
     private void Start()
     {
         navManager = new NavigationManager();
-        SaveSystem saveSystem = new SaveSystem();
         SaveData saveData = saveSystem.Load();
-        checkpointPosition = saveData.lastCheckpointPosition;
-        GameObject.FindGameObjectsWithTag("Player")[0].transform.position = checkpointPosition;
+        GameObject.FindGameObjectsWithTag("Player")[0].transform.position = startingPosition;
     }
 
     private void Update()
@@ -83,7 +84,6 @@ public class GameManager : MonoBehaviour
     {
         navManager.DeactivateCanvas(canvas);
     }
-
     public void FinishLevel(ScoreManager scoreManager)
     {
         scoreManager.FinishLevel();
