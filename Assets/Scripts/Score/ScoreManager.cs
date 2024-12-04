@@ -40,7 +40,7 @@ public class ScoreManager : MonoBehaviour
     public void AddGems(int amount)
     {
         currentGems += amount;
-        Debug.Log("Current Gems: " + currentGems);
+        //Debug.Log("Current Gems: " + currentGems);
         OnGemsChanged?.Invoke(currentGems);
     }
 

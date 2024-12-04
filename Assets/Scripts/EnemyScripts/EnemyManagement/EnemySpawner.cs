@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour
         SpawnAllEnemies();
     }
 
-    private void SpawnAllEnemies()
+    public void SpawnAllEnemies()
     {
         foreach (var spawnPoint in enemyLevelData.enemySpawnPoints)
         {
@@ -33,6 +33,16 @@ public class EnemySpawner : MonoBehaviour
         {
             Debug.LogWarning($"Failed to spawn enemy of type {enemyType} at position {position}");
             return;
+        }
+    }
+
+    public void DeleteAllEnemies()
+    {
+        var enemies = FindObjectsOfType<Enemy>();
+
+        foreach (var enemy in enemies)
+        {
+            Destroy(enemy.gameObject);
         }
     }
 }

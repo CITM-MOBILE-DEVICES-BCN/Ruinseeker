@@ -17,7 +17,7 @@ public class ShadowEnemy : Enemy
         }
         else
         {
-            Debug.Log("Player transform assigned to shadow");
+            //Debug.Log("Player transform assigned to shadow");
         }
     }
 
