@@ -4,6 +4,7 @@ using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using NavigationSystem;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -62,8 +63,8 @@ public class GameManager : MonoBehaviour
     }
 
     public Vector2 GetCheckpointPosition()
-    { 
-        return checkpointPosition; 
+    {
+        return checkpointPosition;
     }
 
     public void ChangeScene(string sceneName)
@@ -85,4 +86,16 @@ public class GameManager : MonoBehaviour
     {
         scoreManager.FinishLevel();
     }
+
+    public void WaitForSeconds(float delay)
+    {
+        StartCoroutine(WaitCoroutine(delay));
+    }
+
+    private IEnumerator WaitCoroutine(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+    }
 }
+
+
