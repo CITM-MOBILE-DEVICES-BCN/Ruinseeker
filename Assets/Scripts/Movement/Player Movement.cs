@@ -353,6 +353,7 @@ public class PlayerMovement : MonoBehaviour
         transform.position = GameManager.Instance.GetCheckpointPosition();
         enemySpawner.DeleteAllEnemies();
         enemySpawner.SpawnAllEnemies();
+        invertedControlls = false;
     }
 
     public void JumpAfterKillingEnemy()
