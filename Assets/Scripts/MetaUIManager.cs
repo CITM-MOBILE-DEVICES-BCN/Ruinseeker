@@ -4,6 +4,20 @@ using TMPro;
 
 public class MetaUIManager : MonoBehaviour
 {
+    #region Singleton
+    public static MetaUIManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
+    #endregion
+
     [System.Serializable]
     public class LevelUI
     {
@@ -12,6 +26,10 @@ public class MetaUIManager : MonoBehaviour
         public Image[] starImages;
         public Button levelButton;
     }
+
+    [Header("Screens")]
+    [SerializeField] private GameObject mainScreenCanvas;
+    [SerializeField] private GameObject levelSelectScreenCanvas;
 
     [Header("Global Progress")]
     [SerializeField] private TextMeshProUGUI totalGemsText;
@@ -46,6 +64,8 @@ public class MetaUIManager : MonoBehaviour
         // Update each level's progress
         foreach (var levelUI in levelUIs)
         {
+            if (levelUI == null) continue;
+
             var (stars, maxStars) = ScoreManager.Instance.GetLevelProgress(levelUI.levelName);
 
             // Update stars text
@@ -69,5 +89,20 @@ public class MetaUIManager : MonoBehaviour
     {
         GameManager.Instance.ChangeScene(levelName);
         ScoreManager.Instance.ResetLevelScore();
+    }
+    public void ShowMainScreen()
+    {
+        if (mainScreenCanvas != null)
+            mainScreenCanvas.SetActive(true);
+        if (levelSelectScreenCanvas != null)
+            levelSelectScreenCanvas.SetActive(false);
+    }
+
+    public void ShowLevelSelectScreen()
+    {
+        if (mainScreenCanvas != null)
+            mainScreenCanvas.SetActive(false);
+        if (levelSelectScreenCanvas != null)
+            levelSelectScreenCanvas.SetActive(true);
     }
 }

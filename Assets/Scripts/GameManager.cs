@@ -71,6 +71,18 @@ public class GameManager : MonoBehaviour
         navManager.ChangeScene(sceneName);
         ScoreManager.Instance.ResetLevelScore();
     }
+    public void GoBackToLevelSelector(string sceneName)
+    {
+        navManager.ChangeScene(sceneName);
+        if (MetaUIManager.Instance != null)
+        {
+            MetaUIManager.Instance.ShowLevelSelectScreen();
+        }
+        else
+        {
+            Debug.LogWarning("MetaUIManager Instance not found!");
+        }
+    }
 
     public void ActivateCanvas(GameObject canvas)
     {
