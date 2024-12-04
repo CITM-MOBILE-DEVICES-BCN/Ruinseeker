@@ -46,7 +46,7 @@ public class Boomerang : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<PlayerMovement>().DeadFunction();
         }
     }
 }

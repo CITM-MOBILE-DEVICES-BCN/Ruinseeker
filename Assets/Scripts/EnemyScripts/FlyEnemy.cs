@@ -38,7 +38,7 @@ public class FlyEnemy : Enemy
             }
             else
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<PlayerMovement>().DeadFunction();
             }
         }
     }

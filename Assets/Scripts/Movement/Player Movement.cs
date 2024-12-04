@@ -51,6 +51,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private BoxCollider2D playerCollider;
 
+    [Header("References")]
+    [SerializeField] private EnemySpawner enemySpawner;
+
     private void Start()
     {
         currentState = PlayerState.Walking;
@@ -345,5 +348,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.velocity = Vector3.zero;
         transform.position = GameManager.Instance.GetCheckpointPosition();
+        enemySpawner.DeleteAllEnemies();
+        enemySpawner.SpawnAllEnemies();
     }
 }

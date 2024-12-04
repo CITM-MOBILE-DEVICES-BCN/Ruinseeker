@@ -59,7 +59,7 @@ public class BoomerangEnemy : Enemy
             }
             else
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<PlayerMovement>().DeadFunction();
             }
         }
      
