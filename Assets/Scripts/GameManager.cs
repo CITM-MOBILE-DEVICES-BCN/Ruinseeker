@@ -29,18 +29,11 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public Vector2 checkpointPosition;
-    public GameObject startingPosition;
-
 
     private void Start()
     {
         navManager = new NavigationManager();
         SaveData saveData = saveSystem.Load();
-        
-        if (GameObject.FindGameObjectsWithTag("Player") != null)
-        {
-            Instantiate(startingPosition, saveData.lastCheckpointPosition, Quaternion.identity);
-        }
     }
 
     private void Update()

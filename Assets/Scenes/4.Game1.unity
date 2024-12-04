@@ -14178,6 +14178,10 @@ PrefabInstance:
       value: 13.25
       objectReference: {fileID: 0}
     - target: {fileID: 1647056330427079766, guid: f33ca0e1ac41ca045b782077a8fb1759, type: 3}
+      propertyPath: startCheckpoint
+      value: 
+      objectReference: {fileID: 687377628}
+    - target: {fileID: 1647056330427079766, guid: f33ca0e1ac41ca045b782077a8fb1759, type: 3}
       propertyPath: headLayer.m_Bits
       value: 384
       objectReference: {fileID: 0}
