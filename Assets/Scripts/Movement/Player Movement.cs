@@ -57,6 +57,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Checkpoint")]
     [SerializeField] private GameObject startCheckpoint;
 
+    public float fudgeThreshold = 0.1f;
+
     private void Start()
     {
         currentState = PlayerState.Walking;
@@ -126,23 +128,15 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D WallHitMiddle = Physics2D.Raycast(transform.position, facingRight ? Vector2.right : Vector2.left, wallCheckDistance, wallLayer);
         RaycastHit2D WallHitBottom = Physics2D.Raycast(transform.position + new Vector3(0, -wallCheckOffset, 0), facingRight ? Vector2.right : Vector2.left, wallCheckDistance, wallLayer);
 
-        isWallSliding = WallHitTop.collider != null || WallHitMiddle.collider != null || WallHitBottom.collider != null;
+        isWallSliding = WallHitTop.collider != null || WallHitMiddle.collider != null || WallHitBottom.collider != null && rb.velocity.y < 0;
 
         RaycastHit2D HeadHitLeft = Physics2D.Raycast(transform.position + new Vector3(-leftRightGroundCheckOffset, 0, 0), Vector2.up, groundCheckDistance, headLayer);
         RaycastHit2D HeadHitMiddle = Physics2D.Raycast(transform.position, Vector2.up, groundCheckDistance, headLayer);
         RaycastHit2D HeadHitRight = Physics2D.Raycast(transform.position + new Vector3(leftRightGroundCheckOffset, 0, 0), Vector2.up, groundCheckDistance, headLayer);
 
-        if (HeadHitLeft.collider != null && HeadHitMiddle.collider == null && HeadHitRight.collider == null)
+        if (HeadHitLeft || HeadHitMiddle || HeadHitRight)
         {
-            rb.AddForce(Vector2.right * 2, ForceMode2D.Impulse);
-        }
-        else if (HeadHitRight.collider != null && HeadHitMiddle.collider == null && HeadHitLeft.collider == null)
-        {
-            rb.AddForce(Vector2.left * 2, ForceMode2D.Impulse);
-        }
-        else
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
+            rb.velocity = new Vector2(rb.velocity.x, 0);
         }
 
 
@@ -157,21 +151,20 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //NOHACERCASO
-        //if (rb.velocity.y <= 0)
-        //{
-        //    RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer);
-        //    if (hit.collider != null)
-        //    {
-        //        float distanceToPlatform = hit.distance;
-        //        float fudgeThreshold = 0.1f;
+        if (rb.velocity.y <= 0)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer);
+            if (hit.collider != null)
+            {
+                float distanceToPlatform = hit.distance;
 
-        //        if (distanceToPlatform < fudgeThreshold)
-        //        {
-        //            transform.position = new Vector2(transform.position.x, hit.point.y + playerCollider.bounds.extents.y);
-        //            rb.velocity = new Vector2(rb.velocity.x, 0);
-        //        }
-        //    }
-        //}
+                if (distanceToPlatform < fudgeThreshold)
+                {
+                    transform.position = new Vector2(transform.position.x, hit.point.y + playerCollider.bounds.extents.y);
+                    rb.velocity = new Vector2(rb.velocity.x, 0);
+                }
+            }
+        }
 
         if (isDashing)
         {
@@ -184,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
             switch (currentState)
             {
                 case PlayerState.Walking:
-                    Walk();
+                    //Walk();
                     break;
                 case PlayerState.Jumping:
                     JumpMovement();
@@ -195,6 +188,11 @@ public class PlayerMovement : MonoBehaviour
                 case PlayerState.WallJumping:
                     WallJump();
                     break;
+            }
+
+            if (currentState != PlayerState.WallSliding)
+            {
+                Walk();
             }
 
             if (currentState != PlayerState.WallSliding)
@@ -355,5 +353,10 @@ public class PlayerMovement : MonoBehaviour
         transform.position = GameManager.Instance.GetCheckpointPosition();
         enemySpawner.DeleteAllEnemies();
         enemySpawner.SpawnAllEnemies();
+    }
+
+    public void JumpAfterKillingEnemy()
+    {
+        rb.velocity = new Vector2(rb.velocity.x, jumpForce / 1.5f);
     }
 }

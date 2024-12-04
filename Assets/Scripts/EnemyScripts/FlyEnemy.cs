@@ -35,6 +35,7 @@ public class FlyEnemy : Enemy
             if (angle < 45)
             {
                 Die();
+                GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<PlayerMovement>().JumpAfterKillingEnemy();
             }
             else
             {

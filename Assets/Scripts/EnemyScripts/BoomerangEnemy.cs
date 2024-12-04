@@ -53,9 +53,10 @@ public class BoomerangEnemy : Enemy
 
             float angle = Vector2.Angle(Vector2.up, collisionDirection);
 
-            if (angle < 45)
+            if (angle < 70)
             {
                 Die();
+                GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<PlayerMovement>().JumpAfterKillingEnemy();
             }
             else
             {

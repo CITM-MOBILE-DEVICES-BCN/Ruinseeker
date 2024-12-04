@@ -14182,12 +14182,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 687377628}
     - target: {fileID: 1647056330427079766, guid: f33ca0e1ac41ca045b782077a8fb1759, type: 3}
+      propertyPath: wallCheckOffset
+      value: 0.4405
+      objectReference: {fileID: 0}
+    - target: {fileID: 1647056330427079766, guid: f33ca0e1ac41ca045b782077a8fb1759, type: 3}
       propertyPath: headLayer.m_Bits
       value: 384
       objectReference: {fileID: 0}
     - target: {fileID: 1647056330427079766, guid: f33ca0e1ac41ca045b782077a8fb1759, type: 3}
       propertyPath: wallSlidingSpeed
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1647056330427079766, guid: f33ca0e1ac41ca045b782077a8fb1759, type: 3}
+      propertyPath: leftRightGroundCheckOffset
+      value: 0.2673
       objectReference: {fileID: 0}
     - target: {fileID: 3048736839892168853, guid: f33ca0e1ac41ca045b782077a8fb1759, type: 3}
       propertyPath: m_Name
