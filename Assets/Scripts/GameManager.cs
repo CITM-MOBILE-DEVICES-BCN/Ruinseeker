@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
     public void ChangeScene(string sceneName)
     {
         navManager.ChangeScene(sceneName);
-        //ScoreManager.Instance.ResetLevelScore();
+        ScoreManager.Instance.ResetLevelScore();
     }
 
     public void ActivateCanvas(GameObject canvas)
