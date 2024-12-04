@@ -29,14 +29,14 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public Vector2 checkpointPosition;
-    public Vector2 startingPosition;
+    public GameObject startingPosition;
 
 
     private void Start()
     {
         navManager = new NavigationManager();
         SaveData saveData = saveSystem.Load();
-        GameObject.FindGameObjectsWithTag("Player")[0].transform.position = startingPosition;
+        GameObject.FindGameObjectsWithTag("Player")[0].transform.position = startingPosition.transform.position;
     }
 
     private void Update()
