@@ -183,8 +183,8 @@ MonoBehaviour:
   invertedControlls: 0
   wallCheckDistance: 0.35
   groundCheckDistance: 0.5
-  leftRightGroundCheckOffset: 0.26
-  wallCheckOffset: 0.41
+  leftRightGroundCheckOffset: 0.264
+  wallCheckOffset: 0.438
   groundLayer:
     serializedVersion: 2
     m_Bits: 640
