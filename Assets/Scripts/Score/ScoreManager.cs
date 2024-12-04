@@ -44,21 +44,34 @@ public class ScoreManager : MonoBehaviour
 
 
     public int CurrentGems => currentGems;
-    public int TotalScore => saveData.totalScore;
-    public int TotalGems => saveData.totalGems;
+    public int TotalScore => saveData?.totalScore ?? 0;
+    public int TotalGems => saveData?.totalGems ?? 0;
     public bool IsLevelCompleted => hasLevelBeenCompleted;
 
-    private void Start()
-    {
-        saveSystem = new SaveSystem();
-        LoadProgress();
-    }
     private void LoadProgress()
     {
+        if (saveSystem == null)
+        {
+            saveSystem = new SaveSystem();
+        }
+
         saveData = saveSystem.Load();
+        if (saveData == null)
+        {
+            saveData = new SaveData
+            {
+                levelProgress = new System.Collections.Generic.List<LevelData>(),
+                totalScore = 0,
+                totalGems = 0
+            };
+        }
+
+        Debug.Log("Progress Loaded - Total Score: " + saveData.totalScore);
     }
     public (int stars, int maxStars) GetLevelProgress(string levelName)
     {
+        if (saveData?.levelProgress == null) return (0, 3);
+
         var levelData = saveData.levelProgress.FirstOrDefault(l => l.levelName == levelName);
         return (levelData?.stars ?? 0, 3);
     }
@@ -148,5 +161,6 @@ public class ScoreManager : MonoBehaviour
         currentGems = 0;
         gemsAtLastCheckpoint = 0;
         hasLevelBeenCompleted = false;
+        OnGemsChanged?.Invoke(currentGems);
     }
 }

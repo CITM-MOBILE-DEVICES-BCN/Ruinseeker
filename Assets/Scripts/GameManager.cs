@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using NavigationSystem;
@@ -82,10 +81,20 @@ public class GameManager : MonoBehaviour
     {
         navManager.DeactivateCanvas(canvas);
     }
-    public void FinishLevel(ScoreManager scoreManager)
+    public void FinishLevel()
     {
-        scoreManager.FinishLevel();
+        if (ScoreManager.Instance != null)
+        {
+            ScoreManager.Instance.FinishLevel();
+            Debug.Log("Level finished through GameManager");
+        }
+        else
+        {
+            Debug.LogError("ScoreManager instance is null when trying to finish level");
+        }
     }
+
+
 
     public void WaitForSeconds(float delay)
     {
