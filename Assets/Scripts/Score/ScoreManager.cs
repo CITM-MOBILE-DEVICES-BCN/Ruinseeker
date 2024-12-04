@@ -26,7 +26,7 @@ public class ScoreManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        saveSystem = new SaveSystem();
+        //saveSystem = new SaveSystem();
         LoadProgress();
     }
     #endregion
