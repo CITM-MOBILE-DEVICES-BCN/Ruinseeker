@@ -54,11 +54,16 @@ public class PlayerMovement : MonoBehaviour
     [Header("References")]
     [SerializeField] private EnemySpawner enemySpawner;
 
+    [Header("Checkpoint")]
+    [SerializeField] private GameObject startCheckpoint;
+
     private void Start()
     {
         currentState = PlayerState.Walking;
         auxGravityScale = gravityScale;
         auxRbGravityScale = rb.gravityScale;
+
+        transform.position = startCheckpoint.transform.position;
     }
 
     private void Update()
