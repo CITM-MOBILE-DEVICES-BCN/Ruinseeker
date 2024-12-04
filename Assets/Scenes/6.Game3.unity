@@ -5939,15 +5939,23 @@ PrefabInstance:
     - target: {fileID: 6772298901399896638, guid: adb5d8afafa7af64f825007a7b8b681a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6343384767553164210, guid: 14fe2ec79f3629546a4060632726334f, type: 3}
     - target: {fileID: 6772298901399896638, guid: adb5d8afafa7af64f825007a7b8b681a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
+      objectReference: {fileID: 6343384767553164210, guid: 14fe2ec79f3629546a4060632726334f, type: 3}
+    - target: {fileID: 6772298901399896638, guid: adb5d8afafa7af64f825007a7b8b681a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ActivateCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772298901399896638, guid: adb5d8afafa7af64f825007a7b8b681a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: DeactivateCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 6772298901399896638, guid: adb5d8afafa7af64f825007a7b8b681a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1308099644}
     - target: {fileID: 8982264386537148729, guid: adb5d8afafa7af64f825007a7b8b681a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.485

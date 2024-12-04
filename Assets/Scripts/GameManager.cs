@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public Vector2 checkpointPosition;
-
+   
     private void Start()
     {
         navManager = new NavigationManager();
@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
         return checkpointPosition;
     }
 
+   
     public void ChangeScene(string sceneName)
     {
         navManager.ChangeScene(sceneName);
