@@ -36,7 +36,11 @@ public class GameManager : MonoBehaviour
     {
         navManager = new NavigationManager();
         SaveData saveData = saveSystem.Load();
-        GameObject.FindGameObjectsWithTag("Player")[0].transform.position = startingPosition.transform.position;
+        
+        if (GameObject.FindGameObjectsWithTag("Player") != null)
+        {
+            Instantiate(startingPosition, saveData.lastCheckpointPosition, Quaternion.identity);
+        }
     }
 
     private void Update()
