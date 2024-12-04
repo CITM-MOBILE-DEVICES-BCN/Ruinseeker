@@ -39,7 +39,7 @@ public class FlyEnemy : Enemy
             }
             else
             {
-                GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<PlayerMovement>().DeadFunction();
+                collision.gameObject.GetComponent<PlayerMovement>().DeadFunction();
             }
         }
     }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MineEnemy : Enemy
 {
+    [SerializeField] private GameObject explosionPrefab;
+    [SerializeField] private float explosionLifeTime = 1.0f;
     private bool isActivated = false;
     private Vector3 targetPosition;
 
@@ -38,7 +40,10 @@ public class MineEnemy : Enemy
 
     public override void Die()
     {
-        Debug.Log("Submarine Mine destroyed!");
+        Debug.Log("Submarine Mine deployed!");
+        GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        Destroy(explosion, explosionLifeTime);
         base.Die();
     }
+
 }
