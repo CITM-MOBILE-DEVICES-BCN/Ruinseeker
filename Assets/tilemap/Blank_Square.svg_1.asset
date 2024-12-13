@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: Blank_Square.svg_1
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 1019044652, guid: 90c22fbee15edab42a5864b6457f79c2, type: 3}
+  m_Sprite: {fileID: 675544231, guid: d4f8656f840b2794482475242bde459b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
