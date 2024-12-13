@@ -570,10 +570,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2076004905}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -132.7}
-  m_SizeDelta: {x: 469.86, y: 94.3057}
+  m_AnchorMin: {x: 0.5, y: 0.90200007}
+  m_AnchorMax: {x: 0.5, y: 0.90200007}
+  m_AnchoredPosition: {x: -0.50002, y: 4}
+  m_SizeDelta: {x: 756.776, y: 94.306}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &577687267
 MonoBehaviour:
@@ -595,10 +595,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MOVILE MINIGAMES
+  m_text: MOBILE MINIGAMES
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: acb87aeea78ff104a800996c070ef8fb, type: 2}
+  m_sharedMaterial: {fileID: 5792687763086322082, guid: acb87aeea78ff104a800996c070ef8fb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
