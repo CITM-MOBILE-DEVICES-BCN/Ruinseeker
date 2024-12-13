@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d12bd7c6e875638429ed248b7061d471
+guid: 20940c8ff93bde04d94692148e5f77fc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 8
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,274 +97,379 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pu_jumps_0
+      name: Enemies_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 24
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8393e3337d1408b40a83359724a121fb
+      internalID: -830798011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemies_1
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 24
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0a659898ce1e36478bf7485f6bafc3e
+      internalID: -2128262649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemies_2
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 24
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f0ab8f8feb0ec04fadeb97d3463be49
+      internalID: -1727295095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemies_3
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 24
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ae1cde9810a98340961597ff795b2b9
+      internalID: 697389262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemies_4
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 24
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49b65f32eb899064c927d8fef9451559
+      internalID: 1853526281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemies_5
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 24
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7a0c554b7c97d34aa789e18959b4d5a
+      internalID: 927378697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemies_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 12
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c4f13111c50e1f4598e57e77aaf5150
+      internalID: 1706267638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemies_7
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 12
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 991ec00c832c3fa4d9a1f2f565c30b11
+      internalID: -218608606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemies_8
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 12
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b643efb18ab9e24699a9cdb8898dbef
+      internalID: -35151193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemies_9
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 12
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 004948bea7ada5949bf889c2fb19814d
+      internalID: -107421136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemies_10
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 12
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aa2a832e14d7994c9910a51550c15ff
+      internalID: -1546358193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemies_11
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 12
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ed593ce7d623e9419f4897f4f464107
+      internalID: -1756088308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemies_12
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 12
+        height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52db2a565c6d1b445a469c96bae7f220
-      internalID: -683660010
+      spriteID: 2e0184e203d511349b99f3ef47c583f8
+      internalID: 878875339
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pu_jumps_1
+      name: Enemies_13
       rect:
         serializedVersion: 2
-        x: 128
+        x: 12
         y: 0
-        width: 128
-        height: 128
+        width: 12
+        height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ae8a5405f277c64db9f7e591d66f22d
-      internalID: -330553993
+      spriteID: de41a3b9d20dbb8439d6e124be1cb70e
+      internalID: 31096176
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pu_jumps_2
+      name: Enemies_14
       rect:
         serializedVersion: 2
-        x: 256
+        x: 24
         y: 0
-        width: 128
-        height: 128
+        width: 12
+        height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fa7d9260cc2f624180197035e3c88d1
-      internalID: -1385165923
+      spriteID: 07d164fddfc5b9340b454f71e7d10c22
+      internalID: -1449970437
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pu_jumps_3
+      name: Enemies_15
       rect:
         serializedVersion: 2
-        x: 384
+        x: 36
         y: 0
-        width: 128
-        height: 128
+        width: 12
+        height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc3d64ba187f525469ffcb60fbc9a20f
-      internalID: 922107897
+      spriteID: 5b52f0d5c55ec374abe4ee0d1b6b47cb
+      internalID: -1157474650
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pu_jumps_4
+      name: Enemies_16
       rect:
         serializedVersion: 2
-        x: 512
+        x: 48
         y: 0
-        width: 128
-        height: 128
+        width: 12
+        height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 009e1ef9ad9b4cd4fbfd636f4b4ecc5b
-      internalID: 222825981
+      spriteID: 9e6085f17822a9e4a992135c90111a43
+      internalID: 293809273
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pu_jumps_5
+      name: Enemies_17
       rect:
         serializedVersion: 2
-        x: 640
+        x: 60
         y: 0
-        width: 128
-        height: 128
+        width: 12
+        height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d3b3304c122a9147ae71cb419e2aeb1
-      internalID: 1020002539
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pu_jumps_6
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aa2121673fa22a74c86f6300ece90941
-      internalID: -622828909
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pu_jumps_7
-      rect:
-        serializedVersion: 2
-        x: 896
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 52ae469235fd21140b2e46b73b069a18
-      internalID: 1067401281
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pu_jumps_8
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eb0f634f3bdfa2943a9620963478699f
-      internalID: -1694384951
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pu_jumps_9
-      rect:
-        serializedVersion: 2
-        x: 1152
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c91937e8f3fc74d4f800acfcfe03bc85
-      internalID: -1791503945
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pu_jumps_10
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9972ac2171f03e2448a11ba59d679b3e
-      internalID: -59581681
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pu_jumps_11
-      rect:
-        serializedVersion: 2
-        x: 1408
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7db4ff39f99066646a01fd605b65d08d
-      internalID: 1328799087
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pu_jumps_12
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a9ce6d64ab2c9af4eacdab89bf3e3fdd
-      internalID: -1960561067
+      spriteID: a59bab300bfd0bc4897393c9f7c006ec
+      internalID: 584669381
       vertices: []
       indices: 
       edges: []
@@ -380,19 +485,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      pu_jumps_0: -683660010
-      pu_jumps_1: -330553993
-      pu_jumps_10: -59581681
-      pu_jumps_11: 1328799087
-      pu_jumps_12: -1960561067
-      pu_jumps_2: -1385165923
-      pu_jumps_3: 922107897
-      pu_jumps_4: 222825981
-      pu_jumps_5: 1020002539
-      pu_jumps_6: -622828909
-      pu_jumps_7: 1067401281
-      pu_jumps_8: -1694384951
-      pu_jumps_9: -1791503945
+      Enemies_0: -830798011
+      Enemies_1: -2128262649
+      Enemies_10: -1546358193
+      Enemies_11: -1756088308
+      Enemies_12: 878875339
+      Enemies_13: 31096176
+      Enemies_14: -1449970437
+      Enemies_15: -1157474650
+      Enemies_16: 293809273
+      Enemies_17: 584669381
+      Enemies_2: -1727295095
+      Enemies_3: 697389262
+      Enemies_4: 1853526281
+      Enemies_5: 927378697
+      Enemies_6: 1706267638
+      Enemies_7: -218608606
+      Enemies_8: -35151193
+      Enemies_9: -107421136
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
