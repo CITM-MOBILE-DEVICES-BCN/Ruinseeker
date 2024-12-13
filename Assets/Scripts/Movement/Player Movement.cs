@@ -57,6 +57,9 @@ public class PlayerMovement : MonoBehaviour
     [Header("Checkpoint")]
     [SerializeField] private GameObject startCheckpoint;
 
+    [Header("Animator")]
+    [SerializeField] private Animator animator;
+
     public float fudgeThreshold = 0.1f;
 
     private void Start()
@@ -82,6 +85,7 @@ public class PlayerMovement : MonoBehaviour
                 if (!hasDashedInAir)
                 {
                     Dash();
+                    animator.SetTrigger("Dash");
                     hasDashedInAir = true;
                 }
             }
@@ -271,6 +275,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (coyoteTimer > 0)
         {
+            SoundManager.PlaySound(SoundType.JUMP);
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             currentState = PlayerState.Jumping;
             coyoteTimer = 0;
@@ -317,7 +322,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void Flip()
     {
+        SoundManager.PlaySound(SoundType.WALLBUMP);
+
         facingRight = !facingRight;
+        if (facingRight)
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }
 
@@ -359,5 +374,7 @@ public class PlayerMovement : MonoBehaviour
     public void JumpAfterKillingEnemy()
     {
         rb.velocity = new Vector2(rb.velocity.x, jumpForce / 1.5f);
+        SoundManager.PlaySound(SoundType.JUMP);
+
     }
 }

@@ -87,11 +87,13 @@ public class MetaUIManager : MonoBehaviour
     // Can be called from button OnClick events
     public void LoadLevel(string levelName)
     {
+        SoundManager.PlaySound(SoundType.BUTTON);
         GameManager.Instance.ChangeScene(levelName);
         ScoreManager.Instance.ResetLevelScore();
     }
     public void ShowMainScreen()
     {
+       
         if (mainScreenCanvas != null)
             mainScreenCanvas.SetActive(true);
         if (levelSelectScreenCanvas != null)
@@ -100,6 +102,7 @@ public class MetaUIManager : MonoBehaviour
 
     public void ShowLevelSelectScreen()
     {
+        SoundManager.PlaySound(SoundType.BUTTON);
         if (mainScreenCanvas != null)
             mainScreenCanvas.SetActive(false);
         if (levelSelectScreenCanvas != null)
