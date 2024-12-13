@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         saveSystem = new SaveSystem();
+       
     }
     #endregion
 
@@ -90,6 +91,11 @@ public class GameManager : MonoBehaviour
 
     public void ActivateCanvas(GameObject canvas)
     {
+        if (navManager == null)
+        {
+            navManager = new NavigationManager();
+        }
+
         navManager.ActivateCanvas(canvas);
         
     }
