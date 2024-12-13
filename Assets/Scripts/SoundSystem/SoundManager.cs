@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; // Para trabajar con la UI
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public enum SoundType
 {
@@ -21,11 +22,11 @@ public enum SoundType
 public class SoundManager : MonoBehaviour
 {
     [SerializeField] private AudioClip[] soundList;
-    [SerializeField] private Slider effectsVolumeSlider; // Referencia al slider de efectos
-    [SerializeField] private Slider musicVolumeSlider;   // Referencia al slider de música
+    [SerializeField] private Slider effectsVolumeSlider;
+    [SerializeField] private Slider musicVolumeSlider;  
     private static SoundManager instance;
-    private AudioSource effectsAudioSource;
-    private AudioSource musicAudioSource;
+    public AudioSource effectsAudioSource;
+    public AudioSource musicAudioSource;
 
     private void Awake()
     {
@@ -38,12 +39,12 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        musicAudioSource = gameObject.AddComponent<AudioSource>();
+        
     }
 
     private void Start()
     {
-        effectsAudioSource = GetComponent<AudioSource>();
+
 
         if (effectsVolumeSlider != null)
         {
@@ -79,11 +80,11 @@ public class SoundManager : MonoBehaviour
     public void SetEffectsVolume(float volume)
     {
 
-        AudioListener.volume = effectsVolumeSlider.value;
+        effectsAudioSource.volume = volume;
     }
 
     public void SetMusicVolume(float volume)
     {
-        AudioListener.volume = musicVolumeSlider.value;
+        musicAudioSource.volume = volume;
     }
 }

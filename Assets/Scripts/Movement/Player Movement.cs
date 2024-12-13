@@ -299,6 +299,7 @@ public class PlayerMovement : MonoBehaviour
     private void WallJump()
     {
         Flip();
+        SoundManager.PlaySound(SoundType.JUMP);
         float moveDirection = facingRight ? 1 : -1;
         rb.velocity = new Vector2(speed * moveDirection, wallJumpForce);
         currentState = PlayerState.Jumping;
