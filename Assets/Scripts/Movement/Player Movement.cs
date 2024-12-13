@@ -57,6 +57,9 @@ public class PlayerMovement : MonoBehaviour
     [Header("Checkpoint")]
     [SerializeField] private GameObject startCheckpoint;
 
+    [Header("Animator")]
+    [SerializeField] private Animator animator;
+
     public float fudgeThreshold = 0.1f;
 
     private void Start()
@@ -82,6 +85,7 @@ public class PlayerMovement : MonoBehaviour
                 if (!hasDashedInAir)
                 {
                     Dash();
+                    animator.SetTrigger("Dash");
                     hasDashedInAir = true;
                 }
             }
@@ -318,6 +322,14 @@ public class PlayerMovement : MonoBehaviour
     private void Flip()
     {
         facingRight = !facingRight;
+        if (facingRight)
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }
 
