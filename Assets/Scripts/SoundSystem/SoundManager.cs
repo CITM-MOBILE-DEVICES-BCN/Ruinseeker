@@ -8,7 +8,7 @@ public enum SoundType
     CHECKPOINT,
     GEMPICKUP,
     KILLINGENEMY,
-    GUNNERSHOT,
+    MINEENEMY,
     BOOMERANGSHOT,
     JUMP,
     LEVELCOMPLETED,
