@@ -275,6 +275,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (coyoteTimer > 0)
         {
+            SoundManager.PlaySound(SoundType.JUMP);
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             currentState = PlayerState.Jumping;
             coyoteTimer = 0;
@@ -321,6 +322,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Flip()
     {
+        SoundManager.PlaySound(SoundType.WALLBUMP);
+
         facingRight = !facingRight;
         if (facingRight)
         {
@@ -371,5 +374,7 @@ public class PlayerMovement : MonoBehaviour
     public void JumpAfterKillingEnemy()
     {
         rb.velocity = new Vector2(rb.velocity.x, jumpForce / 1.5f);
+        SoundManager.PlaySound(SoundType.JUMP);
+
     }
 }

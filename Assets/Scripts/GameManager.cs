@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
    
     private void Start()
     {
+
         navManager = new NavigationManager();
         SaveData saveData = saveSystem.Load();
     }
@@ -69,14 +70,14 @@ public class GameManager : MonoBehaviour
     public void ChangeScene(string sceneName)
     {
         navManager.ChangeScene(sceneName);
-        SoundManager.PlaySound(SoundType.BUTTON);
+        
 
         ScoreManager.Instance.ResetLevelScore();
     }
     public void GoBackToLevelSelector(string sceneName)
     {
         navManager.ChangeScene(sceneName);
-        SoundManager.PlaySound(SoundType.BUTTON);
+        
         if (MetaUIManager.Instance != null)
         {
             MetaUIManager.Instance.ShowLevelSelectScreen();
@@ -90,18 +91,19 @@ public class GameManager : MonoBehaviour
     public void ActivateCanvas(GameObject canvas)
     {
         navManager.ActivateCanvas(canvas);
-        SoundManager.PlaySound(SoundType.BUTTON);
+        
     }
 
     public void DeactivateCanvas(GameObject canvas)
     {
         navManager.DeactivateCanvas(canvas);
-        SoundManager.PlaySound(SoundType.BUTTON);
+        
     }
     public void FinishLevel()
     {
         if (ScoreManager.Instance != null)
         {
+            SoundManager.PlaySound(SoundType.LEVELCOMPLETED);
             ScoreManager.Instance.FinishLevel();
             Debug.Log("Level finished through GameManager");
         }

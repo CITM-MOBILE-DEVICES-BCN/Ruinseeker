@@ -93,7 +93,7 @@ public class MetaUIManager : MonoBehaviour
     }
     public void ShowMainScreen()
     {
-        SoundManager.PlaySound(SoundType.BUTTON);
+       
         if (mainScreenCanvas != null)
             mainScreenCanvas.SetActive(true);
         if (levelSelectScreenCanvas != null)
