@@ -11,6 +11,8 @@ public abstract class Collectable : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             OnCollect();
+            SoundManager.PlaySound(SoundType.GEMPICKUP);
+
         }
     }
 

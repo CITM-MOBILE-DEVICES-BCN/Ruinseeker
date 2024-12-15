@@ -8,7 +8,8 @@ public class CheckPoint : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            GameManager.Instance.UpdateCheckpointPosition(transform.position);
+            SoundManager.PlaySound(SoundType.CHECKPOINT);
+            RuinseekerManager.Instance.UpdateCheckpointPosition(transform.position);
             Debug.Log("checkpoint saved");
         }
 

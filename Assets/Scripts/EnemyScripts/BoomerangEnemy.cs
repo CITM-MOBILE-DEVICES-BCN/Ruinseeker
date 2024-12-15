@@ -26,6 +26,8 @@ public class BoomerangEnemy : Enemy
 
     private IEnumerator ThrowBoomerang()
     {
+        SoundManager.PlaySound(SoundType.BOOMERANGSHOT);
+
         isThrowingBoomerang = true;
 
         var boomerang = Instantiate(boomerangPrefab, transform.position, Quaternion.identity);

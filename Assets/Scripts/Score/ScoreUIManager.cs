@@ -29,24 +29,24 @@ public class ScoreUIManager : MonoBehaviour
     private void Start()
     {
         // Subscribe to score events
-        ScoreManager.Instance.OnGemsChanged += UpdateGemsDisplay;
-        ScoreManager.Instance.OnScoreChanged += UpdateScoreDisplay;
-        ScoreManager.Instance.OnStarsChanged += UpdateStarsDisplay;
+        ScoreManagerRuin.Instance.OnGemsChanged += UpdateGemsDisplay;
+        ScoreManagerRuin.Instance.OnScoreChanged += UpdateScoreDisplay;
+        ScoreManagerRuin.Instance.OnStarsChanged += UpdateStarsDisplay;
 
         // Initialize displays
-        UpdateGemsDisplay(ScoreManager.Instance.CurrentGems);
-        UpdateScoreDisplay(ScoreManager.Instance.TotalScore);
-        UpdateStarsDisplay(ScoreManager.Instance.CalculateStars());
+        UpdateGemsDisplay(ScoreManagerRuin.Instance.CurrentGems);
+        UpdateScoreDisplay(ScoreManagerRuin.Instance.TotalScore);
+        UpdateStarsDisplay(ScoreManagerRuin.Instance.CalculateStars());
     }
 
     private void OnDestroy()
     {
         // Unsubscribe from events to prevent memory leaks
-        if (ScoreManager.Instance != null)
+        if (ScoreManagerRuin.Instance != null)
         {
-            ScoreManager.Instance.OnGemsChanged -= UpdateGemsDisplay;
-            ScoreManager.Instance.OnScoreChanged -= UpdateScoreDisplay;
-            ScoreManager.Instance.OnStarsChanged -= UpdateStarsDisplay;
+            ScoreManagerRuin.Instance.OnGemsChanged -= UpdateGemsDisplay;
+            ScoreManagerRuin.Instance.OnScoreChanged -= UpdateScoreDisplay;
+            ScoreManagerRuin.Instance.OnStarsChanged -= UpdateStarsDisplay;
         }
     }
 

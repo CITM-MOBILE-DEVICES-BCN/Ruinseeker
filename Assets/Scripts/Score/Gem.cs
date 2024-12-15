@@ -4,7 +4,7 @@ public class Gem : Collectable
 {
     protected override void OnCollect()
     {
-        ScoreManager.Instance.AddGems(value);
+        ScoreManagerRuin.Instance.AddGems(value);
         base.OnCollect();
     }
 }
