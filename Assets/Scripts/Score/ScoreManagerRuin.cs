@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class ScoreManager : MonoBehaviour
+public class ScoreManagerRuin : MonoBehaviour
 {
 
     public event Action<int> OnGemsChanged;
@@ -15,7 +15,7 @@ public class ScoreManager : MonoBehaviour
 
 
     #region Singleton
-    public static ScoreManager Instance { get; private set; }
+    public static ScoreManagerRuin Instance { get; private set; }
 
     private void Awake()
     {

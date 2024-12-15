@@ -366,7 +366,7 @@ public class PlayerMovement : MonoBehaviour
     public void DeadFunction()
     {
         rb.velocity = Vector3.zero;
-        transform.position = GameManager.Instance.GetCheckpointPosition();
+        transform.position = RuinseekerManager.Instance.GetCheckpointPosition();
         enemySpawner.DeleteAllEnemies();
         enemySpawner.SpawnAllEnemies();
         invertedControlls = false;
