@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class LoadingBarRuin : MonoBehaviour
+public class LoadingBar : MonoBehaviour
 {
     public Slider slider;
     public float smoothSpeed = 0.2f;
@@ -25,7 +25,7 @@ public class LoadingBarRuin : MonoBehaviour
         if (slider.value >= 0.99f)
         {
             slider.value = 1f;
-            RuinseekerManager.Instance.ChangeScene(nextSceneName);
+            GameManager.Instance.ChangeScene(nextSceneName);
         }
 
     }

@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 using NavigationSystem;
 using System;
 
-public class RuinseekerManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     #region Singleton
-    public static RuinseekerManager Instance { get; private set; }
+    public static GameManager Instance { get; private set; }
 
     private NavigationManager navManager;
     private SaveSystem saveSystem;

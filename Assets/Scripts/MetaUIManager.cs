@@ -41,14 +41,14 @@ public class MetaUIManager : MonoBehaviour
     private void Start()
     {
         UpdateUI();
-        ScoreManagerRuin.Instance.OnProgressUpdated += UpdateUI;
+        ScoreManager.Instance.OnProgressUpdated += UpdateUI;
     }
 
     private void OnDestroy()
     {
-        if (ScoreManagerRuin.Instance != null)
+        if (ScoreManager.Instance != null)
         {
-            ScoreManagerRuin.Instance.OnProgressUpdated -= UpdateUI;
+            ScoreManager.Instance.OnProgressUpdated -= UpdateUI;
         }
     }
 
@@ -56,17 +56,17 @@ public class MetaUIManager : MonoBehaviour
     {
         // Update total progress
         if (totalGemsText != null)
-            totalGemsText.text = $"Total Gems: {ScoreManagerRuin.Instance.TotalGems}";
+            totalGemsText.text = $"Total Gems: {ScoreManager.Instance.TotalGems}";
 
         if (totalScoreText != null)
-            totalScoreText.text = $"Total Score: {ScoreManagerRuin.Instance.TotalScore}";
+            totalScoreText.text = $"Total Score: {ScoreManager.Instance.TotalScore}";
 
         // Update each level's progress
         foreach (var levelUI in levelUIs)
         {
             if (levelUI == null) continue;
 
-            var (stars, maxStars) = ScoreManagerRuin.Instance.GetLevelProgress(levelUI.levelName);
+            var (stars, maxStars) = ScoreManager.Instance.GetLevelProgress(levelUI.levelName);
 
             // Update stars text
             if (levelUI.starsText != null)
@@ -88,8 +88,8 @@ public class MetaUIManager : MonoBehaviour
     public void LoadLevel(string levelName)
     {
         SoundManager.PlaySound(SoundType.BUTTON);
-        RuinseekerManager.Instance.ChangeScene(levelName);
-        ScoreManagerRuin.Instance.ResetLevelScore();
+        GameManager.Instance.ChangeScene(levelName);
+        ScoreManager.Instance.ResetLevelScore();
     }
     public void ShowMainScreen()
     {

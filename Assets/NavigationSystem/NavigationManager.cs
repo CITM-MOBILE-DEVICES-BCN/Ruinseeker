@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 namespace NavigationSystem
 {
-    public class NavigationManagerRuin
+    public class NavigationManager
     {
         public void ChangeScene(string sceneName)
         {
