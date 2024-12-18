@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class EnemyBuilder
 {
-    public static T BuildEnemy<T>(Vector3 postion, string enemyType) where T : EnemyRuin
+    public static T BuildEnemy<T>(Vector3 postion, string enemyType) where T : EnemyRuinSeeker
     {
         GameObject enemyPrefab = Resources.Load<GameObject>("EnemyPrefabs/" + enemyType);
         if (enemyPrefab == null)

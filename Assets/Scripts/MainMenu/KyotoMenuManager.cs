@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MenuManager : MonoBehaviour
+public class KyotoMenuManager : MonoBehaviour
 {
     [Header("Buttons")]
     [SerializeField] private Button playButton;
@@ -19,6 +19,8 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
+        AudioManager.instance.PlayMenuMusic();
+
         playButton.onClick.AddListener(() => AudioManager.instance.PlayButtonSound());
         playButton.onClick.AddListener(() => AudioManager.instance.PlayInGameMusic());
         playButton.onClick.AddListener(() => NavigationManager.Instance.LoadSceneAsync(inGameSceneName));
@@ -27,6 +29,7 @@ public class MenuManager : MonoBehaviour
         shopButton.onClick.AddListener(() => AudioManager.instance.PlayButtonSound());
         shopButton.onClick.AddListener(() => NavigationManager.Instance.LoadSceneAsync(shopSceneName));
         exitButton.onClick.AddListener(() => AudioManager.instance.PlayButtonSound());
+        exitButton.onClick.AddListener(() => AudioManager.instance.ResetMusic());
         exitButton.onClick.AddListener(() => NavigationManager.Instance.LoadSceneAsync(exitSceneName));
 
 

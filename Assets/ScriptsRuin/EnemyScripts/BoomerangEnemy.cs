@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BoomerangEnemy : EnemyRuin
+public class BoomerangEnemy : EnemyRuinSeeker
 {
     public GameObject boomerangPrefab;
     public float boomerangSpeed = 5f;

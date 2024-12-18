@@ -4,10 +4,10 @@ using TMPro;
 using System;
 
 // This class will manage all the UI elements in the gameplay scene
-public class ScoreUIManager : MonoBehaviour
+public class ScoreUIManagerRuin : MonoBehaviour
 {
     #region Singleton
-    public static ScoreUIManager Instance { get; private set; }
+    public static ScoreUIManagerRuin Instance { get; private set; }
 
     private void Awake()
     {

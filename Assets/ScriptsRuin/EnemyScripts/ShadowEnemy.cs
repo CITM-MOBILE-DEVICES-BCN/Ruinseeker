@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShadowEnemy : EnemyRuin
+public class ShadowEnemy : EnemyRuinSeeker
 {
     [SerializeField] private float movementDelay = 1.0f;
     private Queue<Vector3> playerPositions = new Queue<Vector3>();

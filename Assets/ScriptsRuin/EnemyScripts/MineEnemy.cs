@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MineEnemy : EnemyRuin
+public class MineEnemy : EnemyRuinSeeker
 {
     [SerializeField] private GameObject explosionPrefab;
     [SerializeField] private float explosionLifeTime = 1.0f;

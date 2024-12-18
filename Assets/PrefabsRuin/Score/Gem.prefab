@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2965502748751625864}
   - component: {fileID: 5473324447202592551}
-  - component: {fileID: 7125410446695597414}
   - component: {fileID: 8686687461096387057}
   - component: {fileID: 7522291424009114743}
+  - component: {fileID: 1330579875507666069}
   m_Layer: 0
   m_Name: Gem
   m_TagString: Untagged
@@ -87,20 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7125410446695597414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6967806824056743940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4f86caa70beb144a930338634ce231e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value: 1
-  destroyOnCollect: 1
 --- !u!58 &8686687461096387057
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -157,3 +143,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1330579875507666069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6967806824056743940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f86caa70beb144a930338634ce231e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 1
+  destroyOnCollect: 1

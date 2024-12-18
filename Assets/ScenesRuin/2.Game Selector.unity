@@ -418,6 +418,10 @@ PrefabInstance:
       value: UnityEngine.AudioSource, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 732458241912796652, guid: 6fdf7ea3cbb01a545a1c0a95c1df6efd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: MainMenu_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 732458241912796652, guid: 6fdf7ea3cbb01a545a1c0a95c1df6efd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 8300000, guid: 0d6fc463edc7866478b759b273984652, type: 3}
@@ -859,7 +863,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98728a74a53afd84891569823b9fb26a, type: 3}
+  m_Script: {fileID: 11500000, guid: cc98d64af7a0d4840b93b841f8786b81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1599023174

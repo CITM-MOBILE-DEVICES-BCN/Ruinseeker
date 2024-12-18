@@ -26,11 +26,11 @@ public class PowerUpModifier
    
      public void Start()
     {
-        dashes = GameManager.Instance.GetLevel(PowerUpLevel.DASHLEVEL);
-        dashTime = GameManager.Instance.GetLevel(PowerUpLevel.DASHTIMELEVEL);
-        timeStop = GameManager.Instance.GetLevel(PowerUpLevel.TIMESTOPLEVEL);
-        radious = GameManager.Instance.GetLevel(PowerUpLevel.COINCOLLECTIONLEVEL);
-        luck = GameManager.Instance.GetLevel(PowerUpLevel.LUCKLEVEL);
+        dashes = KyotoManager.Instance.GetLevel(PowerUpLevel.DASHLEVEL);
+        dashTime = KyotoManager.Instance.GetLevel(PowerUpLevel.DASHTIMELEVEL);
+        timeStop = KyotoManager.Instance.GetLevel(PowerUpLevel.TIMESTOPLEVEL);
+        radious = KyotoManager.Instance.GetLevel(PowerUpLevel.COINCOLLECTIONLEVEL);
+        luck = KyotoManager.Instance.GetLevel(PowerUpLevel.LUCKLEVEL);
     }
 
    public int Dash()

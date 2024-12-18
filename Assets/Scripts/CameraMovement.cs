@@ -20,7 +20,7 @@ public class CameraMovement : MonoBehaviour
     private void Start()
     {
         startingHeight = transform.position.y;
-        GameManager.Instance.SetDifficulty(0);
+        KyotoManager.Instance.SetDifficulty(0);
     }
 
     [SerializeField] private Vector2 normalSpeed = new Vector2(0, 4);
@@ -45,7 +45,7 @@ public class CameraMovement : MonoBehaviour
 
         if(currentHeight%100 == 0)
         {
-            GameManager.Instance.SetDifficulty(currentHeight);
+            KyotoManager.Instance.SetDifficulty(currentHeight);
         }
 
     }

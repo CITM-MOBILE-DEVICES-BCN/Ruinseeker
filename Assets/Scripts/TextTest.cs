@@ -16,7 +16,7 @@ public class TextTest : MonoBehaviour
     public void ActualizarCurrency()
     {
         // Asigna el valor de la variable "Lives" al texto de la UI
-        currency.text = "x" + GameManager.Instance.GetCoins();
+        currency.text = "x" + KyotoManager.Instance.GetCoins();
     }
 
 }

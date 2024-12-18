@@ -60,19 +60,19 @@ public class ShopManager : MonoBehaviour
 
     private void Update()
     {
-        currencyText.text = "Currency: " + GameManager.Instance.GetCoins() + "+";
+        currencyText.text = "Currency: " + KyotoManager.Instance.GetCoins() + "+";
 
-        dashLevel.text = "Level " + GameManager.Instance.GetLevel(PowerUpLevel.DASHLEVEL);
-        dashTimeLevel.text = "Level " + GameManager.Instance.GetLevel(PowerUpLevel.DASHTIMELEVEL);
-        timeStopLevel.text = "Level " + GameManager.Instance.GetLevel(PowerUpLevel.TIMESTOPLEVEL);
-        coinCollectionLevel.text = "Level " + GameManager.Instance.GetLevel(PowerUpLevel.COINCOLLECTIONLEVEL);
-        luckLevel.text = "Level " + GameManager.Instance.GetLevel(PowerUpLevel.LUCKLEVEL);
+        dashLevel.text = "Level " + KyotoManager.Instance.GetLevel(PowerUpLevel.DASHLEVEL);
+        dashTimeLevel.text = "Level " + KyotoManager.Instance.GetLevel(PowerUpLevel.DASHTIMELEVEL);
+        timeStopLevel.text = "Level " + KyotoManager.Instance.GetLevel(PowerUpLevel.TIMESTOPLEVEL);
+        coinCollectionLevel.text = "Level " + KyotoManager.Instance.GetLevel(PowerUpLevel.COINCOLLECTIONLEVEL);
+        luckLevel.text = "Level " + KyotoManager.Instance.GetLevel(PowerUpLevel.LUCKLEVEL);
 
-        dashPrice.text = "Upgrade " + GameManager.Instance.GetPrice(PowerUpPrice.DASHPRICE) + "+";
-        dashTimePrice.text = "Upgrade " + GameManager.Instance.GetPrice(PowerUpPrice.DASHTIMEPRICE) + "+";
-        timeStopPrice.text = "Upgrade " + GameManager.Instance.GetPrice(PowerUpPrice.TIMESTOPPRICE) + "+";
-        coinCollectionPrice.text = "Upgrade " + GameManager.Instance.GetPrice(PowerUpPrice.COINCOLLECTIONPRICE) + "+";
-        luckPrice.text = "Upgrade " + GameManager.Instance.GetPrice(PowerUpPrice.LUCKPRICE) + "+";
+        dashPrice.text = "Upgrade " + KyotoManager.Instance.GetPrice(PowerUpPrice.DASHPRICE) + "+";
+        dashTimePrice.text = "Upgrade " + KyotoManager.Instance.GetPrice(PowerUpPrice.DASHTIMEPRICE) + "+";
+        timeStopPrice.text = "Upgrade " + KyotoManager.Instance.GetPrice(PowerUpPrice.TIMESTOPPRICE) + "+";
+        coinCollectionPrice.text = "Upgrade " + KyotoManager.Instance.GetPrice(PowerUpPrice.COINCOLLECTIONPRICE) + "+";
+        luckPrice.text = "Upgrade " + KyotoManager.Instance.GetPrice(PowerUpPrice.LUCKPRICE) + "+";
     }
 
 
@@ -85,7 +85,7 @@ public class ShopManager : MonoBehaviour
     }
     void BuyItem(string itemName)
     {
-        GameManager.Instance.BuyItem(itemName);
+        KyotoManager.Instance.BuyItem(itemName);
     }
 
 

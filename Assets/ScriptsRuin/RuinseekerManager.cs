@@ -79,9 +79,9 @@ public class RuinseekerManager : MonoBehaviour
     {
         navManager.ChangeScene(sceneName);
         
-        if (MetaUIManager.Instance != null)
+        if (MetaUIManagerRuin.Instance != null)
         {
-            MetaUIManager.Instance.ShowLevelSelectScreen();
+            MetaUIManagerRuin.Instance.ShowLevelSelectScreen();
         }
         else
         {

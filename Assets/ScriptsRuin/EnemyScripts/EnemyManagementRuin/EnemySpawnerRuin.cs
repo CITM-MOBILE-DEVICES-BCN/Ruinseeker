@@ -21,13 +21,13 @@ public class EnemySpawnerRuin : MonoBehaviour
     {
         foreach (var spawnPoint in enemyLevelData.enemySpawnPoints)
         {
-            EnemyBuilder.BuildEnemy<EnemyRuin>(spawnPoint.position, spawnPoint.enemyType);
+            EnemyBuilder.BuildEnemy<EnemyRuinSeeker>(spawnPoint.position, spawnPoint.enemyType);
         }
     }
 
     private void SpawnEnemy(Vector3 position, string enemyType)
     {
-        var enemy = EnemyBuilder.BuildEnemy<EnemyRuin>(position, enemyType);
+        var enemy = EnemyBuilder.BuildEnemy<EnemyRuinSeeker>(position, enemyType);
 
         if (enemy == null)
         {
@@ -38,7 +38,7 @@ public class EnemySpawnerRuin : MonoBehaviour
 
     public void DeleteAllEnemies()
     {
-        var enemies = FindObjectsOfType<EnemyRuin>();
+        var enemies = FindObjectsOfType<EnemyRuinSeeker>();
 
         foreach (var enemy in enemies)
         {

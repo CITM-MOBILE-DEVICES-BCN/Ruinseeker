@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RatatulaEnemy : EnemyRuin
+public class RatatulaEnemy : EnemyRuinSeeker
 {
     private bool isAttached = false;
 

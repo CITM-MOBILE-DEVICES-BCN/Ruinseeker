@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public abstract class EnemyRuin : MonoBehaviour
+public abstract class EnemyRuinSeeker : MonoBehaviour
 {
     public float detectionRange = 5f;
     public float moveSpeed = 2f;

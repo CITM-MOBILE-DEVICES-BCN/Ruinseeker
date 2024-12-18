@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Gem : Collectable
+public class GemRuin : CollectableRuin
 {
     protected override void OnCollect()
     {

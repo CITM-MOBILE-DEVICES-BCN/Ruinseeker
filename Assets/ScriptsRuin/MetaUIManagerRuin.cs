@@ -2,10 +2,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class MetaUIManager : MonoBehaviour
+public class MetaUIManagerRuin : MonoBehaviour
 {
     #region Singleton
-    public static MetaUIManager Instance { get; private set; }
+    public static MetaUIManagerRuin Instance { get; private set; }
 
     private void Awake()
     {

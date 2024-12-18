@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class Collectable : MonoBehaviour
+public abstract class CollectableRuin : MonoBehaviour
 {
     [Header("Collectable Settings")]
     [SerializeField] protected int value = 1;

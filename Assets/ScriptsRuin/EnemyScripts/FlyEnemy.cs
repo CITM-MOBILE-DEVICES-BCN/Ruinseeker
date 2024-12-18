@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class FlyEnemy : EnemyRuin
+public class FlyEnemy : EnemyRuinSeeker
 {
     private bool isChasingPlayer = false;
     

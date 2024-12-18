@@ -10,7 +10,7 @@ public class BaseObstacleProvider : ScriptableObject
 
     public GameObject ProvideObstacle()
     {
-        var difficulty = GameManager.Instance.gameDifficulty;
+        var difficulty = KyotoManager.Instance.gameDifficulty;
 
         switch (difficulty)
         {

@@ -104,6 +104,16 @@ public class AudioManager : MonoBehaviour
         buttonSource.Play();
         
     }
+
+    public void ResetMusic()
+    {
+        titleScreenSource.Stop();
+        menuSource.Stop();
+        inGameSource.Stop();
+        isPlayingTitleMusic = false;
+        isPlayingMenuMusic = false;
+        isPlayingInGameMusic = false;
+    }
     
 
 }

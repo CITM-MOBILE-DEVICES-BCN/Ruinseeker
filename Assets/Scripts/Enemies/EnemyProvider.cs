@@ -11,7 +11,7 @@ public class EnemyProvider : ScriptableObject
     public Enemy ProvideEnemy()
     {
 
-        var difficulty = GameManager.Instance.gameDifficulty;
+        var difficulty = KyotoManager.Instance.gameDifficulty;
 
         switch (difficulty)
         {
